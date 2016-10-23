@@ -1,0 +1,18 @@
+﻿.body {
+   background-image: url('../Pics/wallpaper.jpg');
+}
+.jumbotron {
+    background-image: url('../Pics/jumbotron2.jpg');
+    height:auto;
+}
+.jumbotron p {
+    padding-top: 20px;
+  
+    color:#122332; 
+    text-align:center;
+    
+    
+}
+
+
+

@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Parent.Master" AutoEventWireup="true" CodeBehind="ChildUser.master.cs" Inherits="Travel_Management_System.ChildUser" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .container {
+            text-align: center;
+            background-color:white ;
+            width: 100%;
+            font-size: 30px;
+            color: black;
+            opacity: 0.9;
+            padding-bottom: 50px;
+            
+        }              
+    </style>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+    </asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+    <div class="nav">
+        
+            <div class="pull-left">
+                <asp:Button ID="home" runat="server" Text="Home" Height="50px" Width="100px"/>
+                <asp:Button ID="tours" runat="server" Text="Tour" Height="50px" Width="100px"/>
+                <asp:Button ID="hotels" runat="server" Text="Hotels" Height="50px" Width="100px"/>   
+                <asp:Button ID="places" runat="server" Text="places" Height="50px" Width="100px"/>             
+            </div>
+            <div class="pull-right">
+                <asp:Button ID="logout" runat="server" Text="LogOut" Height="50px" Width="110px"/>  
+                <asp:Button ID="profile" runat="server" Text="Profile" Height="50px" Width="100px"/>
+            </div>    
+            
+       
+            <br />
+            <br />
+            
+       
+        </div>
+       
+    <asp:ContentPlaceHolder ID="UserProfileContent" runat="server">
+
+    </asp:ContentPlaceHolder>
+        </div>
+</asp:Content>
+
