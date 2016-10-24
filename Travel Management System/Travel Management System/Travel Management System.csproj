@@ -77,6 +77,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddTour.aspx" />
     <Content Include="App_Data\TravelDatabase.mdf" />
     <Content Include="App_Data\TravelDatabase_log.ldf">
       <DependentUpon>TravelDatabase.mdf</DependentUpon>
@@ -84,6 +85,7 @@
     <Content Include="Content\parent.css" />
     <Content Include="EditUserInfo.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Pics\add.png" />
     <Content Include="Pics\jumbotron2.jpg" />
     <Content Include="Pics\wallpaper.jpg" />
     <Content Include="Profile.aspx" />
@@ -97,6 +99,8 @@
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Admin.master" />
+    <Content Include="Handler1.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -126,6 +130,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTour.aspx.cs">
+      <DependentUpon>AddTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTour.aspx.designer.cs">
+      <DependentUpon>AddTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.master.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.master.designer.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
     <Compile Include="child.master.cs">
       <DependentUpon>child.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +169,9 @@
     </Compile>
     <Compile Include="EditUserInfo.aspx.designer.cs">
       <DependentUpon>EditUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
     <Compile Include="Parent.Master.cs">
       <DependentUpon>Parent.Master</DependentUpon>

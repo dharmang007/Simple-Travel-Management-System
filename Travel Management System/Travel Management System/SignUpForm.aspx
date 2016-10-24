@@ -27,7 +27,7 @@
         <div class="form-horizontal">   
         <div class="form-group"> 
              <div class="control-label col-sm-4"><asp:Label ID="Label1" runat="server" Text="Email"/></div>
-             <div class="col-sm-6"><asp:TextBox ID="email" runat="server" ForeColor="Black" class="form-control"/></div>
+             <div class="col-sm-6"><asp:TextBox ID="email" TextMode="Email" runat="server" ForeColor="Black" class="form-control"/></div>
         </div>
         <div class="form-group">
              <div class="control-label col-sm-4"><asp:Label ID="Label2" runat="server" Text="First Name"/></div>
