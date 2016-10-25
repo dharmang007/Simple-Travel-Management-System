@@ -83,7 +83,20 @@
       <DependentUpon>TravelDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\parent.css" />
+    <Content Include="DisplayTours.aspx" />
     <Content Include="EditUserInfo.aspx" />
+    <Content Include="img\portfolio\fullsize\1.jpg" />
+    <Content Include="img\portfolio\fullsize\2.jpg" />
+    <Content Include="img\portfolio\fullsize\3.jpg" />
+    <Content Include="img\portfolio\fullsize\4.jpg" />
+    <Content Include="img\portfolio\fullsize\5.jpg" />
+    <Content Include="img\portfolio\fullsize\6.jpg" />
+    <Content Include="img\portfolio\thumbnails\1.jpg" />
+    <Content Include="img\portfolio\thumbnails\2.jpg" />
+    <Content Include="img\portfolio\thumbnails\3.jpg" />
+    <Content Include="img\portfolio\thumbnails\4.jpg" />
+    <Content Include="img\portfolio\thumbnails\5.jpg" />
+    <Content Include="img\portfolio\thumbnails\6.jpg" />
     <Content Include="packages.config" />
     <Content Include="Pics\add.png" />
     <Content Include="Pics\jumbotron2.jpg" />
@@ -100,7 +113,18 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Admin.master" />
-    <Content Include="Handler1.ashx" />
+    <Content Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="DisplayHotels.aspx" />
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -163,15 +187,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayTours.aspx.cs">
+      <DependentUpon>DisplayTours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayTours.aspx.designer.cs">
+      <DependentUpon>DisplayTours.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditUserInfo.aspx.cs">
       <DependentUpon>EditUserInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditUserInfo.aspx.designer.cs">
       <DependentUpon>EditUserInfo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Handler1.ashx.cs">
-      <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
     <Compile Include="Parent.Master.cs">
       <DependentUpon>Parent.Master</DependentUpon>
@@ -194,6 +227,13 @@
     </Compile>
     <Compile Include="SignUpForm.aspx.designer.cs">
       <DependentUpon>SignUpForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayHotels.aspx.cs">
+      <DependentUpon>DisplayHotels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayHotels.aspx.designer.cs">
+      <DependentUpon>DisplayHotels.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

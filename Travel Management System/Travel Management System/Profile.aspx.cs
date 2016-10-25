@@ -22,6 +22,8 @@ namespace Travel_Management_System
                 Session["email"] = "dharmangsolanki999@gmail.com";
                UserInfo user1 = dataclass.UserInfos.SingleOrDefault(i=>i.Email==Session["email"].ToString());
                 l1.Text=user1.FirstName;
+                GridView1.DataSource = dataclass.UserInfos;
+                GridView1.DataBind();
                 
                 
 

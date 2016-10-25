@@ -13,7 +13,9 @@
     
     <p><h1>Welcome </p><asp:Label ID="l1" runat="server"/>
     <div class="UserInfoTable"><br/>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true">
 
+        </asp:GridView>
 
      
  

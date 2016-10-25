@@ -21,6 +21,14 @@
     <div class="form-horizontal col-md-7">
         <div class="form-group">
             <div class="control-label col-sm-3">
+                <asp:Label id="Label6"  runat="server" text="Tour_Id"/>
+            </div>
+            <div class="col-sm-6">
+                <asp:TextBox id="tour_id" ForeColor="Black" class="form-control" runat="server"/>        
+            </div>    
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-3">
                 <asp:Label id="l1"  runat="server" text="Name of Tour"/>
             </div>
             <div class="col-sm-6">
@@ -40,7 +48,7 @@
                 <asp:Label id="Label2" runat="server" text="Days"/>
             </div>
             <div class="col-sm-6">
-                <asp:TextBox id="days" runat="server" ForeColor="Black" class="form-control"/>        
+                <asp:TextBox id="days" runat="server" TextMode="Number" ForeColor="Black" class="form-control"/>        
             </div>             
         </div>    
         <div class="form-group">
@@ -68,13 +76,23 @@
             </div>   
         </div>
         <div class="form-group">           
-                    <div class="control-label col-sm-3"><asp:Button BackColor="#cc6600" ID="Register" runat="server" Text="Register" ForeColor="Black" /></div>
+                    <div class="control-label col-sm-3"><asp:Button BackColor="#cc6600" ID="Register" runat="server" Text="Register" ForeColor="Black" OnClick="Register_Click" /></div>
                     <div class="control-label col-sm-3"><asp:Button BackColor="#cc6600" ID="Reset" runat="server" Text="Reset"  ForeColor="Black"  /></div>
                 </div>
     </div>
     <div class="col-md-5">   
         <p style="text-align:center; font-size:30px"; > Image for Tour</p>
         <asp:FileUpload ID="FileUpload1" Style="background-image: url('../Pics/add.png');" runat="server"/>
-            
+        <asp:Image ID="Image1" runat="server" />    
+    </div> 
+        </div>
+    <div class="View-section">
+        <h2>Info::
+        <asp:Label  ID="Info" runat="server" Height="30px" Width="25%">
+            </h2>
+        </asp:Label>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true">
+
+        </asp:GridView>
     </div>
 </asp:Content>

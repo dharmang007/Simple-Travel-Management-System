@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TravelDatabase" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TravelDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TravelDatabaseConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TravelDatabase.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TravelDatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.UserInfo" Member="UserInfos">
     <Type Name="UserInfo">
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -11,35 +11,13 @@
       <Column Name="Street" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="State" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="UserInfo_Tour_booking" Member="Tour_bookings" ThisKey="Email" OtherKey="Email" Type="Tour_booking" />
       <Association Name="UserInfo_HOTEL_BOOKING" Member="HOTEL_BOOKING" ThisKey="Email" OtherKey="Email" Type="HOTEL_BOOKING" Cardinality="One" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Tour_booking" Member="Tour_bookings">
-    <Type Name="Tour_booking">
-      <Column Name="Booking_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tour_id" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Column Name="No_of_persons" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="UserInfo_Tour_booking" Member="UserInfo" ThisKey="Email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
-      <Association Name="TOUR_Tour_booking" Member="TOUR" ThisKey="Tour_id" OtherKey="TOUR_ID" Type="TOUR" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TOURS" Member="TOURs">
-    <Type Name="TOUR">
-      <Column Name="TOUR_ID" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TOUR_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="PLACE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="DAYS" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Column Name="PRICE" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" />
-      <Column Name="LOCATIONS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="TOUR_INFO" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="TOUR_Tour_booking" Member="Tour_bookings" ThisKey="TOUR_ID" OtherKey="Tour_id" Type="Tour_booking" />
+      <Association Name="UserInfo_Tour_booking" Member="Tour_bookings" ThisKey="Email" OtherKey="Email" Type="Tour_booking" />
     </Type>
   </Table>
   <Table Name="dbo.HOTELS" Member="HOTELs">
     <Type Name="HOTEL">
-      <Column Name="HOTEL_ID" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTEL_ID" AutoSync="Never" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="HOTEL_NAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="STREET" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="CITY" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
@@ -63,6 +41,29 @@
     <Type Name="AdminTable">
       <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tour_booking" Member="Tour_bookings">
+    <Type Name="Tour_booking">
+      <Column Name="Booking_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tour_id" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="No_of_persons" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UserInfo_Tour_booking" Member="UserInfo" ThisKey="Email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
+      <Association Name="Tour_Tour_booking" Member="Tour" ThisKey="Tour_id" OtherKey="TOUR_ID" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tour" Member="Tours">
+    <Type Name="Tour">
+      <Column Name="TOUR_ID" AutoSync="Never" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Column Name="TOUR_NAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="PLACE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="DAYS" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="PRICE" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="LOCATIONS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="TOUR_INFO" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Always" />
+      <Column Name="pic" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Association Name="Tour_Tour_booking" Member="Tour_bookings" ThisKey="TOUR_ID" OtherKey="Tour_id" Type="Tour_booking" />
     </Type>
   </Table>
 </Database>
