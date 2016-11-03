@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,16 +9,18 @@ namespace Travel_Management_System
 {
     public partial class DisplayTours : System.Web.UI.Page
     {
+        public string url;
         protected void Page_Load(object sender, EventArgs e)
         {
-            StringWriter str = new StringWriter();
-            Html32TextWriter html = new Html32TextWriter(str);
-            DataClasses1DataContext dataclass = new DataClasses1DataContext();
-            Tour tour =new Tour();
-            for (int i = 0; i < 3; i++)
-            {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Tour tour = new Tour();
+           // url = tour.pic; 
+     
+       
+        }
 
-            }
+        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -18,15 +18,7 @@
         <h1>Add New Tour</h1>    
     </div>
     <div class="row">
-    <div class="form-horizontal col-md-7">
-        <div class="form-group">
-            <div class="control-label col-sm-3">
-                <asp:Label id="Label6"  runat="server" text="Tour_Id"/>
-            </div>
-            <div class="col-sm-6">
-                <asp:TextBox id="tour_id" ForeColor="Black" class="form-control" runat="server"/>        
-            </div>    
-        </div>
+    <div class="form-horizontal col-md-7">      
         <div class="form-group">
             <div class="control-label col-sm-3">
                 <asp:Label id="l1"  runat="server" text="Name of Tour"/>
@@ -78,11 +70,12 @@
         <div class="form-group">           
                     <div class="control-label col-sm-3"><asp:Button BackColor="#cc6600" ID="Register" runat="server" Text="Register" ForeColor="Black" OnClick="Register_Click" /></div>
                     <div class="control-label col-sm-3"><asp:Button BackColor="#cc6600" ID="Reset" runat="server" Text="Reset"  ForeColor="Black"  /></div>
-                </div>
+        </div>
     </div>
     <div class="col-md-5">   
         <p style="text-align:center; font-size:30px"; > Image for Tour</p>
         <asp:FileUpload ID="FileUpload1" Style="background-image: url('../Pics/add.png');" runat="server"/>
+        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
         <asp:Image ID="Image1" runat="server" />    
     </div> 
         </div>

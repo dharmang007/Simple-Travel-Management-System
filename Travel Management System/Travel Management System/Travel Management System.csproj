@@ -83,6 +83,7 @@
       <DependentUpon>TravelDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\parent.css" />
+    <Content Include="IMP view files\DisplayTours in Gridview.txt" />
     <Content Include="DisplayTours.aspx" />
     <Content Include="EditUserInfo.aspx" />
     <Content Include="img\portfolio\fullsize\1.jpg" />
@@ -117,6 +118,9 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <Content Include="DisplayHotels.aspx" />
+    <Content Include="TourDetails.aspx" />
+    <Content Include="userlogin.aspx" />
+    <Content Include="WebForm3.aspx" />
     <None Include="DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -235,6 +239,27 @@
     <Compile Include="DisplayHotels.aspx.designer.cs">
       <DependentUpon>DisplayHotels.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TourDetails.aspx.cs">
+      <DependentUpon>TourDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourDetails.aspx.designer.cs">
+      <DependentUpon>TourDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userlogin.aspx.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userlogin.aspx.designer.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -244,6 +269,9 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tour_pics\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -28,6 +28,21 @@
                     text-align:center;
                     font-size:48px;
                 }
+                .body {
+   background-image: url('../Pics/wallpaper.jpg');
+}
+.jumbotron {
+    background-image: url('../Pics/jumbotron2.jpg');
+    height:auto;
+}
+.jumbotron p {
+    padding-top: 20px;
+  
+    color:#122332; 
+    text-align:center;
+    
+    
+}
         </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
         

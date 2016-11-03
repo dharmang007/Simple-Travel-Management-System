@@ -51,7 +51,7 @@ namespace Travel_Management_System
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TravelDatabaseConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TravelDatabaseConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1215,7 +1215,7 @@ namespace Travel_Management_System
 		
 		private string _TOUR_INFO;
 		
-		private System.Data.Linq.Binary _pic;
+		private string _pic;
 		
 		private EntitySet<Tour_booking> _Tour_bookings;
 		
@@ -1237,7 +1237,7 @@ namespace Travel_Management_System
     partial void OnLOCATIONSChanged();
     partial void OnTOUR_INFOChanging(string value);
     partial void OnTOUR_INFOChanged();
-    partial void OnpicChanging(System.Data.Linq.Binary value);
+    partial void OnpicChanging(string value);
     partial void OnpicChanged();
     #endregion
 		
@@ -1247,7 +1247,7 @@ namespace Travel_Management_System
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOUR_ID", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true, IsDbGenerated=true, IsVersion=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOUR_ID", AutoSync=AutoSync.OnInsert, DbType="Decimal(5,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public decimal TOUR_ID
 		{
 			get
@@ -1387,8 +1387,8 @@ namespace Travel_Management_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pic", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary pic
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pic", DbType="VarChar(200)")]
+		public string pic
 		{
 			get
 			{
