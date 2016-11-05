@@ -13,5 +13,25 @@ namespace Travel_Management_System
         {
 
         }
+        protected void login(object sender, EventArgs e)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var q = from i in db.UserInfos                    
+                    select new {i.Email,i.Password};
+
+            foreach(var i in q)
+            {
+                if (i.Email == email.Text && i.Password == password.Text)
+                {
+                    Session["email"] = email.Text;
+                    Response.Redirect("Profile.aspx");
+                }
+                else
+                {
+                    login_error.Visible = true;
+                    login_error.Text = "Wrong Credentials";
+                }
+            }
+        }
     }
 }

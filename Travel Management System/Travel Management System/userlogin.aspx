@@ -4,7 +4,7 @@
         .container-fluid {
             background-color:white;
             border-bottom-style:double;
-            width:60%;
+            width:100%;
             align-content:center;
         }
         .container-fluid .login{
@@ -21,44 +21,81 @@
                 text-align:center;
 
             }
-            .row .form-horizontal {
-                border-right: 1px double;
-            } 
+       .user
+       {
+           background-color:lightgray;
+            animation-fill-mode:both;
+       }
+       .hotel{
+           
+           background-color:lightgray;
+       }
+            
     </style>
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
-       <div class="page-header" >
-        <h1>User Login</h1>    
-        </div>
-       <div class="login form-horizontal">            
-        <div class="form-group row">
-            <div class="control-label col-sm-3">
-                <asp:Label id="l1"  runat="server" text="Email"/>
+        <div class="row">
+            <div class="user col-md-6">
+                <div class="page-header">
+                    <h1>User Login</h1>
+                </div>
+                <div class="User_login form-horizontal">
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Label ID="l1" runat="server" Text="Email" />
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:TextBox ID="email" ForeColor="Black" class="form-control" runat="server" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Label ID="p_label" runat="server" Text="Password" />
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:TextBox ID="password" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Button ID="Button1" CssClass="btn-primary " runat="server" Text="Login" OnClick="login"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <asp:Label ID="login_error" CssClass="alert-info" ForeColor="#ff3300" runat="server" Visible="False"></asp:Label>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <asp:TextBox id="email" ForeColor="Black" class="form-control" runat="server"/>        
-            </div>    
-        </div> 
-           <div class="form-group row">
-            <div class="control-label col-sm-3">
-                <asp:Label id="password_label"  runat="server" text="Password"/>
+            <div class="hotel col-md-6">
+                <div class="page-header">
+                    <h1>Hotel Login</h1>
+                </div>
+                <div class="hotel_login form-horizontal">
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Label ID="Label1" runat="server" Text="Email" />
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:TextBox ID="TextBox1" ForeColor="Black" class="form-control" runat="server" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Label ID="Label2" runat="server" Text="Password" />
+                        </div>
+                        <div class="col-sm-4">
+                            <asp:TextBox ID="TextBox2" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="control-label col-sm-3">
+                            <asp:Button ID="Button2" runat="server" Text="Login" />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <asp:TextBox id="password" TextMode="Password" ForeColor="Black" class="form-control" runat="server"/>        
-            </div>    
-        </div>   
-           <div class="form-group row"  >
-            <div class="control-label col-sm-3">
-                <asp:Button ID="Button1" runat="server" Text="Login" />
-               </div> 
-        </div>    
-    </div>
-        </div>
-    <div class="2 container-fluid">
-        <div class="page-header" >
-        <h1>Hotel Login</h1>    
+            
         </div>
     </div>
 </asp:Content>

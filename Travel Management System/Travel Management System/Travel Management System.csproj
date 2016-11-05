@@ -98,6 +98,7 @@
     <Content Include="img\portfolio\thumbnails\4.jpg" />
     <Content Include="img\portfolio\thumbnails\5.jpg" />
     <Content Include="img\portfolio\thumbnails\6.jpg" />
+    <Content Include="IMP view files\ListView.txt" />
     <Content Include="packages.config" />
     <Content Include="Pics\add.png" />
     <Content Include="Pics\jumbotron2.jpg" />

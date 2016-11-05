@@ -12,27 +12,11 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //  name.Text = Session["fname"].ToString() + " " + Session["lname"].ToString();
-            // name.Text = "NULL".ToString();
-        //    string connectString = "~/App_Data/TravelDatase.mdf";
-            
-            using (DataClasses1DataContext dataclass = new DataClasses1DataContext())
-            {
-                Session["email"] = "dharmangsolanki999@gmail.com";
-               UserInfo user1 = dataclass.UserInfos.SingleOrDefault(i=>i.Email==Session["email"].ToString());
-                l1.Text=user1.FirstName;
-                GridView1.DataSource = dataclass.UserInfos;
-                GridView1.DataBind();
-                
-                
-
-
-
-            }
+            string str_email = Session["email"].ToString();  
+                                 
         }
 
     }
 
-    }
+}
 
