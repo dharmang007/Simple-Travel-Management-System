@@ -10,28 +10,54 @@ namespace Travel_Management_System
 {
     public partial class DisplayTours : System.Web.UI.Page
     {
-        public string url;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
-            Tour tour = new Tour();
+           
+            if (DropDownList1.Items.FindByText("All") == null)
+            {
+                DropDownList1.Items.Add(new ListItem("All"));
+            }
+            var db = new DataClasses1DataContext();
+            IQueryable<Tour> query;
+            query = from i in db.Tours
+                    select i;
             
+            ListView1.DataSource = query;
+            ListView1.DataBind();
         }
 
-        
-
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
-        public IQueryable<Travel_Management_System.Tour> ListView1_GetData([QueryString("tour_id")] int? tour_id)
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var db = new DataClasses1DataContext();
-            IQueryable<Tour> query = db.Tours;           
-            return query;
-           
+            IQueryable<Tour> query;
+            if (DropDownList1.SelectedValue.ToString().Equals("All"))
+            {
+                query = from i in db.Tours
+                        select i;
+            }
+            else
+            {
+                query = from i in db.Tours
+                        where i.PLACE == DropDownList1.SelectedValue.ToString()
+                        select i;
+            }
+            ListView1.DataSource = query;
+            ListView1.DataBind();
         }
+
+        /// [QueryString("tour_id")] int? tour_id
+        /// </summary>
+        /// <returns></returns>
+        /*  public IQueryable<Travel_Management_System.Tour> ListView1_GetData()
+          {
+
+              var db = new DataClasses1DataContext();            
+              IQueryable<Tour> query = from i in db.Tours
+
+                                       select i;
+              return query;
+          }*/
+
     }
 }

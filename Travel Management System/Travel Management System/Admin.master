@@ -11,18 +11,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <div class="nav">
-            <div class="page-header" style="text-align:center; font-family:'Times New Roman', Times, serif"><h1>Admin Section</h1></div>
-            <div class="pull-left">
-                <asp:Button ID="home" runat="server" Text="Home" Height="50px" Width="100px"/>
-                <asp:Button ID="tours" runat="server" Text="Tour" Height="50px" Width="100px"/>
-                <asp:Button ID="hotels" runat="server" Text="Hotels" Height="50px" Width="100px"/>   
-                <asp:Button ID="places" runat="server" Text="places" Height="50px" Width="100px"/>             
-            </div>
-            <div class="pull-right">
-                <asp:Button ID="logout" runat="server" Text="LogOut" Height="50px" Width="110px"/>  
-                <asp:Button ID="profile" runat="server" Text="Admin Profile" Height="50px" Width="100px"/>
-            </div>    
+      <div class="nav nav-pills navbar-inverse">
+        
+            <ul class="nav navbar-nav navbar-left" >
+                <li><a href="#"><span class="glyphicons glyphicons-home"></span>Home</a></li>
+                <li><a href="DisplayTour.aspx">Tours</a></li>  
+                <li><a href="#">Hotels</a></li> 
+                <li><a href="#">Places</a></li>               
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="nav-right">
+                
+                
+            </ul>    
             
        
             <br />

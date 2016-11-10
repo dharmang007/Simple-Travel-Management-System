@@ -33,9 +33,6 @@ namespace Travel_Management_System
     partial void InsertUserInfo(UserInfo instance);
     partial void UpdateUserInfo(UserInfo instance);
     partial void DeleteUserInfo(UserInfo instance);
-    partial void InsertHOTEL(HOTEL instance);
-    partial void UpdateHOTEL(HOTEL instance);
-    partial void DeleteHOTEL(HOTEL instance);
     partial void InsertHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void UpdateHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void DeleteHOTEL_BOOKING(HOTEL_BOOKING instance);
@@ -48,6 +45,15 @@ namespace Travel_Management_System
     partial void InsertTour(Tour instance);
     partial void UpdateTour(Tour instance);
     partial void DeleteTour(Tour instance);
+    partial void InsertState(State instance);
+    partial void UpdateState(State instance);
+    partial void DeleteState(State instance);
+    partial void InsertPlace(Place instance);
+    partial void UpdatePlace(Place instance);
+    partial void DeletePlace(Place instance);
+    partial void InsertHOTEL(HOTEL instance);
+    partial void UpdateHOTEL(HOTEL instance);
+    partial void DeleteHOTEL(HOTEL instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -88,14 +94,6 @@ namespace Travel_Management_System
 			}
 		}
 		
-		public System.Data.Linq.Table<HOTEL> HOTELs
-		{
-			get
-			{
-				return this.GetTable<HOTEL>();
-			}
-		}
-		
 		public System.Data.Linq.Table<HOTEL_BOOKING> HOTEL_BOOKINGs
 		{
 			get
@@ -125,6 +123,30 @@ namespace Travel_Management_System
 			get
 			{
 				return this.GetTable<Tour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<State> States
+		{
+			get
+			{
+				return this.GetTable<State>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Place> Places
+		{
+			get
+			{
+				return this.GetTable<Place>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HOTEL> HOTELs
+		{
+			get
+			{
+				return this.GetTable<HOTEL>();
 			}
 		}
 	}
@@ -443,264 +465,6 @@ namespace Travel_Management_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTELS")]
-	public partial class HOTEL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _HOTEL_ID;
-		
-		private string _HOTEL_NAME;
-		
-		private string _STREET;
-		
-		private string _CITY;
-		
-		private string _STATE;
-		
-		private System.Nullable<decimal> _PHONE1;
-		
-		private System.Nullable<decimal> _PHONE2;
-		
-		private System.Nullable<decimal> _ROOM_COST;
-		
-		private EntitySet<HOTEL_BOOKING> _HOTEL_BOOKINGs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnHOTEL_IDChanging(decimal value);
-    partial void OnHOTEL_IDChanged();
-    partial void OnHOTEL_NAMEChanging(string value);
-    partial void OnHOTEL_NAMEChanged();
-    partial void OnSTREETChanging(string value);
-    partial void OnSTREETChanged();
-    partial void OnCITYChanging(string value);
-    partial void OnCITYChanged();
-    partial void OnSTATEChanging(string value);
-    partial void OnSTATEChanged();
-    partial void OnPHONE1Changing(System.Nullable<decimal> value);
-    partial void OnPHONE1Changed();
-    partial void OnPHONE2Changing(System.Nullable<decimal> value);
-    partial void OnPHONE2Changed();
-    partial void OnROOM_COSTChanging(System.Nullable<decimal> value);
-    partial void OnROOM_COSTChanged();
-    #endregion
-		
-		public HOTEL()
-		{
-			this._HOTEL_BOOKINGs = new EntitySet<HOTEL_BOOKING>(new Action<HOTEL_BOOKING>(this.attach_HOTEL_BOOKINGs), new Action<HOTEL_BOOKING>(this.detach_HOTEL_BOOKINGs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEL_ID", DbType="Decimal(2,0) NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal HOTEL_ID
-		{
-			get
-			{
-				return this._HOTEL_ID;
-			}
-			set
-			{
-				if ((this._HOTEL_ID != value))
-				{
-					this.OnHOTEL_IDChanging(value);
-					this.SendPropertyChanging();
-					this._HOTEL_ID = value;
-					this.SendPropertyChanged("HOTEL_ID");
-					this.OnHOTEL_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEL_NAME", DbType="VarChar(20)")]
-		public string HOTEL_NAME
-		{
-			get
-			{
-				return this._HOTEL_NAME;
-			}
-			set
-			{
-				if ((this._HOTEL_NAME != value))
-				{
-					this.OnHOTEL_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._HOTEL_NAME = value;
-					this.SendPropertyChanged("HOTEL_NAME");
-					this.OnHOTEL_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STREET", DbType="VarChar(20)")]
-		public string STREET
-		{
-			get
-			{
-				return this._STREET;
-			}
-			set
-			{
-				if ((this._STREET != value))
-				{
-					this.OnSTREETChanging(value);
-					this.SendPropertyChanging();
-					this._STREET = value;
-					this.SendPropertyChanged("STREET");
-					this.OnSTREETChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CITY", DbType="VarChar(10)")]
-		public string CITY
-		{
-			get
-			{
-				return this._CITY;
-			}
-			set
-			{
-				if ((this._CITY != value))
-				{
-					this.OnCITYChanging(value);
-					this.SendPropertyChanging();
-					this._CITY = value;
-					this.SendPropertyChanged("CITY");
-					this.OnCITYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATE", DbType="VarChar(15)")]
-		public string STATE
-		{
-			get
-			{
-				return this._STATE;
-			}
-			set
-			{
-				if ((this._STATE != value))
-				{
-					this.OnSTATEChanging(value);
-					this.SendPropertyChanging();
-					this._STATE = value;
-					this.SendPropertyChanged("STATE");
-					this.OnSTATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE1", DbType="Decimal(10,0)")]
-		public System.Nullable<decimal> PHONE1
-		{
-			get
-			{
-				return this._PHONE1;
-			}
-			set
-			{
-				if ((this._PHONE1 != value))
-				{
-					this.OnPHONE1Changing(value);
-					this.SendPropertyChanging();
-					this._PHONE1 = value;
-					this.SendPropertyChanged("PHONE1");
-					this.OnPHONE1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE2", DbType="Decimal(10,0)")]
-		public System.Nullable<decimal> PHONE2
-		{
-			get
-			{
-				return this._PHONE2;
-			}
-			set
-			{
-				if ((this._PHONE2 != value))
-				{
-					this.OnPHONE2Changing(value);
-					this.SendPropertyChanging();
-					this._PHONE2 = value;
-					this.SendPropertyChanged("PHONE2");
-					this.OnPHONE2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROOM_COST", DbType="Decimal(5,0)")]
-		public System.Nullable<decimal> ROOM_COST
-		{
-			get
-			{
-				return this._ROOM_COST;
-			}
-			set
-			{
-				if ((this._ROOM_COST != value))
-				{
-					this.OnROOM_COSTChanging(value);
-					this.SendPropertyChanging();
-					this._ROOM_COST = value;
-					this.SendPropertyChanged("ROOM_COST");
-					this.OnROOM_COSTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL_BOOKINGs", ThisKey="HOTEL_ID", OtherKey="HOTEL_ID")]
-		public EntitySet<HOTEL_BOOKING> HOTEL_BOOKINGs
-		{
-			get
-			{
-				return this._HOTEL_BOOKINGs;
-			}
-			set
-			{
-				this._HOTEL_BOOKINGs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_HOTEL_BOOKINGs(HOTEL_BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOTEL = this;
-		}
-		
-		private void detach_HOTEL_BOOKINGs(HOTEL_BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOTEL = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTEL_BOOKING")]
 	public partial class HOTEL_BOOKING : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -713,9 +477,9 @@ namespace Travel_Management_System
 		
 		private decimal _PERSONS;
 		
-		private EntityRef<HOTEL> _HOTEL;
-		
 		private EntityRef<UserInfo> _UserInfo;
+		
+		private EntityRef<HOTEL> _HOTEL;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -731,8 +495,8 @@ namespace Travel_Management_System
 		
 		public HOTEL_BOOKING()
 		{
-			this._HOTEL = default(EntityRef<HOTEL>);
 			this._UserInfo = default(EntityRef<UserInfo>);
+			this._HOTEL = default(EntityRef<HOTEL>);
 			OnCreated();
 		}
 		
@@ -804,40 +568,6 @@ namespace Travel_Management_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL", ThisKey="HOTEL_ID", OtherKey="HOTEL_ID", IsForeignKey=true)]
-		public HOTEL HOTEL
-		{
-			get
-			{
-				return this._HOTEL.Entity;
-			}
-			set
-			{
-				HOTEL previousValue = this._HOTEL.Entity;
-				if (((previousValue != value) 
-							|| (this._HOTEL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._HOTEL.Entity = null;
-						previousValue.HOTEL_BOOKINGs.Remove(this);
-					}
-					this._HOTEL.Entity = value;
-					if ((value != null))
-					{
-						value.HOTEL_BOOKINGs.Add(this);
-						this._HOTEL_ID = value.HOTEL_ID;
-					}
-					else
-					{
-						this._HOTEL_ID = default(decimal);
-					}
-					this.SendPropertyChanged("HOTEL");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserInfo_HOTEL_BOOKING", Storage="_UserInfo", ThisKey="Email", OtherKey="Email", IsForeignKey=true)]
 		public UserInfo UserInfo
 		{
@@ -868,6 +598,40 @@ namespace Travel_Management_System
 						this._Email = default(string);
 					}
 					this.SendPropertyChanged("UserInfo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL", ThisKey="HOTEL_ID", OtherKey="HOTEL_ID", IsForeignKey=true)]
+		public HOTEL HOTEL
+		{
+			get
+			{
+				return this._HOTEL.Entity;
+			}
+			set
+			{
+				HOTEL previousValue = this._HOTEL.Entity;
+				if (((previousValue != value) 
+							|| (this._HOTEL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._HOTEL.Entity = null;
+						previousValue.HOTEL_BOOKINGs.Remove(this);
+					}
+					this._HOTEL.Entity = value;
+					if ((value != null))
+					{
+						value.HOTEL_BOOKINGs.Add(this);
+						this._HOTEL_ID = value.HOTEL_ID;
+					}
+					else
+					{
+						this._HOTEL_ID = default(decimal);
+					}
+					this.SendPropertyChanged("HOTEL");
 				}
 			}
 		}
@@ -1450,6 +1214,532 @@ namespace Travel_Management_System
 		{
 			this.SendPropertyChanging();
 			entity.Tour = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.States")]
+	public partial class State : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _State_name;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnState_nameChanging(string value);
+    partial void OnState_nameChanged();
+    #endregion
+		
+		public State()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State_name", DbType="VarChar(50)")]
+		public string State_name
+		{
+			get
+			{
+				return this._State_name;
+			}
+			set
+			{
+				if ((this._State_name != value))
+				{
+					this.OnState_nameChanging(value);
+					this.SendPropertyChanging();
+					this._State_name = value;
+					this.SendPropertyChanged("State_name");
+					this.OnState_nameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Place")]
+	public partial class Place : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _place_id;
+		
+		private string _city;
+		
+		private string _state;
+		
+		private string _description;
+		
+		private string _pic;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onplace_idChanging(int value);
+    partial void Onplace_idChanged();
+    partial void OncityChanging(string value);
+    partial void OncityChanged();
+    partial void OnstateChanging(string value);
+    partial void OnstateChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnpicChanging(string value);
+    partial void OnpicChanged();
+    #endregion
+		
+		public Place()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_place_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int place_id
+		{
+			get
+			{
+				return this._place_id;
+			}
+			set
+			{
+				if ((this._place_id != value))
+				{
+					this.Onplace_idChanging(value);
+					this.SendPropertyChanging();
+					this._place_id = value;
+					this.SendPropertyChanged("place_id");
+					this.Onplace_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this.OncityChanging(value);
+					this.SendPropertyChanging();
+					this._city = value;
+					this.SendPropertyChanged("city");
+					this.OncityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this.OnstateChanging(value);
+					this.SendPropertyChanging();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pic", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string pic
+		{
+			get
+			{
+				return this._pic;
+			}
+			set
+			{
+				if ((this._pic != value))
+				{
+					this.OnpicChanging(value);
+					this.SendPropertyChanging();
+					this._pic = value;
+					this.SendPropertyChanged("pic");
+					this.OnpicChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTELS")]
+	public partial class HOTEL : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _HOTEL_ID;
+		
+		private string _HOTEL_NAME;
+		
+		private string _STREET;
+		
+		private string _CITY;
+		
+		private string _STATE;
+		
+		private System.Nullable<decimal> _PHONE1;
+		
+		private System.Nullable<decimal> _PHONE2;
+		
+		private System.Nullable<decimal> _ROOM_COST;
+		
+		private string _pic;
+		
+		private EntitySet<HOTEL_BOOKING> _HOTEL_BOOKINGs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnHOTEL_IDChanging(decimal value);
+    partial void OnHOTEL_IDChanged();
+    partial void OnHOTEL_NAMEChanging(string value);
+    partial void OnHOTEL_NAMEChanged();
+    partial void OnSTREETChanging(string value);
+    partial void OnSTREETChanged();
+    partial void OnCITYChanging(string value);
+    partial void OnCITYChanged();
+    partial void OnSTATEChanging(string value);
+    partial void OnSTATEChanged();
+    partial void OnPHONE1Changing(System.Nullable<decimal> value);
+    partial void OnPHONE1Changed();
+    partial void OnPHONE2Changing(System.Nullable<decimal> value);
+    partial void OnPHONE2Changed();
+    partial void OnROOM_COSTChanging(System.Nullable<decimal> value);
+    partial void OnROOM_COSTChanged();
+    partial void OnpicChanging(string value);
+    partial void OnpicChanged();
+    #endregion
+		
+		public HOTEL()
+		{
+			this._HOTEL_BOOKINGs = new EntitySet<HOTEL_BOOKING>(new Action<HOTEL_BOOKING>(this.attach_HOTEL_BOOKINGs), new Action<HOTEL_BOOKING>(this.detach_HOTEL_BOOKINGs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEL_ID", AutoSync=AutoSync.OnInsert, DbType="Decimal(2,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal HOTEL_ID
+		{
+			get
+			{
+				return this._HOTEL_ID;
+			}
+			set
+			{
+				if ((this._HOTEL_ID != value))
+				{
+					this.OnHOTEL_IDChanging(value);
+					this.SendPropertyChanging();
+					this._HOTEL_ID = value;
+					this.SendPropertyChanged("HOTEL_ID");
+					this.OnHOTEL_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOTEL_NAME", DbType="VarChar(20)")]
+		public string HOTEL_NAME
+		{
+			get
+			{
+				return this._HOTEL_NAME;
+			}
+			set
+			{
+				if ((this._HOTEL_NAME != value))
+				{
+					this.OnHOTEL_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._HOTEL_NAME = value;
+					this.SendPropertyChanged("HOTEL_NAME");
+					this.OnHOTEL_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STREET", DbType="VarChar(20)")]
+		public string STREET
+		{
+			get
+			{
+				return this._STREET;
+			}
+			set
+			{
+				if ((this._STREET != value))
+				{
+					this.OnSTREETChanging(value);
+					this.SendPropertyChanging();
+					this._STREET = value;
+					this.SendPropertyChanged("STREET");
+					this.OnSTREETChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CITY", DbType="VarChar(10)")]
+		public string CITY
+		{
+			get
+			{
+				return this._CITY;
+			}
+			set
+			{
+				if ((this._CITY != value))
+				{
+					this.OnCITYChanging(value);
+					this.SendPropertyChanging();
+					this._CITY = value;
+					this.SendPropertyChanged("CITY");
+					this.OnCITYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATE", DbType="VarChar(15)")]
+		public string STATE
+		{
+			get
+			{
+				return this._STATE;
+			}
+			set
+			{
+				if ((this._STATE != value))
+				{
+					this.OnSTATEChanging(value);
+					this.SendPropertyChanging();
+					this._STATE = value;
+					this.SendPropertyChanged("STATE");
+					this.OnSTATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE1", DbType="Decimal(10,0)")]
+		public System.Nullable<decimal> PHONE1
+		{
+			get
+			{
+				return this._PHONE1;
+			}
+			set
+			{
+				if ((this._PHONE1 != value))
+				{
+					this.OnPHONE1Changing(value);
+					this.SendPropertyChanging();
+					this._PHONE1 = value;
+					this.SendPropertyChanged("PHONE1");
+					this.OnPHONE1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE2", DbType="Decimal(10,0)")]
+		public System.Nullable<decimal> PHONE2
+		{
+			get
+			{
+				return this._PHONE2;
+			}
+			set
+			{
+				if ((this._PHONE2 != value))
+				{
+					this.OnPHONE2Changing(value);
+					this.SendPropertyChanging();
+					this._PHONE2 = value;
+					this.SendPropertyChanged("PHONE2");
+					this.OnPHONE2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROOM_COST", DbType="Decimal(5,0)")]
+		public System.Nullable<decimal> ROOM_COST
+		{
+			get
+			{
+				return this._ROOM_COST;
+			}
+			set
+			{
+				if ((this._ROOM_COST != value))
+				{
+					this.OnROOM_COSTChanging(value);
+					this.SendPropertyChanging();
+					this._ROOM_COST = value;
+					this.SendPropertyChanged("ROOM_COST");
+					this.OnROOM_COSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pic", DbType="VarChar(100)")]
+		public string pic
+		{
+			get
+			{
+				return this._pic;
+			}
+			set
+			{
+				if ((this._pic != value))
+				{
+					this.OnpicChanging(value);
+					this.SendPropertyChanging();
+					this._pic = value;
+					this.SendPropertyChanged("pic");
+					this.OnpicChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL_BOOKINGs", ThisKey="HOTEL_ID", OtherKey="HOTEL_ID")]
+		public EntitySet<HOTEL_BOOKING> HOTEL_BOOKINGs
+		{
+			get
+			{
+				return this._HOTEL_BOOKINGs;
+			}
+			set
+			{
+				this._HOTEL_BOOKINGs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_HOTEL_BOOKINGs(HOTEL_BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.HOTEL = this;
+		}
+		
+		private void detach_HOTEL_BOOKINGs(HOTEL_BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.HOTEL = null;
 		}
 	}
 }

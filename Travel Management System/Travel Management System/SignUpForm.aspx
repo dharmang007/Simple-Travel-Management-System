@@ -8,7 +8,6 @@
             width: 75%;
             font-size: 30px;
             color: white;
-            opacity: 0.8;
             padding-bottom:150px;
         }
         

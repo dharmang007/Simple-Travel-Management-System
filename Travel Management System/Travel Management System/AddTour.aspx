@@ -32,7 +32,9 @@
                 <asp:Label id="Label1" runat="server" text="Place"/>
             </div>
             <div class="col-sm-6">
-                <asp:TextBox id="tour_place" ForeColor="Black" class="form-control" runat="server"/>        
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LinqDataSource1" DataTextField="State_name" DataValueField="State_name"></asp:DropDownList>       
+                <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Travel_Management_System.DataClasses1DataContext" EntityTypeName="" Select="new (State_name)" TableName="States">
+                </asp:LinqDataSource>
             </div>   
         </div>
         <div class="form-group">
@@ -74,13 +76,14 @@
     </div>
     <div class="col-md-5">   
         <p style="text-align:center; font-size:30px"; > Image for Tour</p>
-        <asp:FileUpload ID="FileUpload1" Style="background-image: url('../Pics/add.png');" runat="server"/>
-        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+        <asp:FileUpload ID="FileUpload1"  Style="background-image: url('../Pics/add.png');" runat="server"/>
+        <asp:Label ID="Label7" runat="server" Text="Label" Height="400px" Width="500px"></asp:Label>
         <asp:Image ID="Image1" runat="server" />    
     </div> 
         </div>
-    <div class="View-section">
+    <div class="View-section" contenteditable="true">
         <h2>Info::
+        
         <asp:Label  ID="Info" runat="server" Height="30px" Width="25%">
             </h2>
         </asp:Label>

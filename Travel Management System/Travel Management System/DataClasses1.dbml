@@ -15,26 +15,13 @@
       <Association Name="UserInfo_Tour_booking" Member="Tour_bookings" ThisKey="Email" OtherKey="Email" Type="Tour_booking" />
     </Type>
   </Table>
-  <Table Name="dbo.HOTELS" Member="HOTELs">
-    <Type Name="HOTEL">
-      <Column Name="HOTEL_ID" AutoSync="Never" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="HOTEL_NAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="STREET" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CITY" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="STATE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PHONE1" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-      <Column Name="PHONE2" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
-      <Column Name="ROOM_COST" Type="System.Decimal" DbType="Decimal(5,0)" CanBeNull="true" />
-      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL_BOOKINGs" ThisKey="HOTEL_ID" OtherKey="HOTEL_ID" Type="HOTEL_BOOKING" />
-    </Type>
-  </Table>
   <Table Name="dbo.HOTEL_BOOKING" Member="HOTEL_BOOKINGs">
     <Type Name="HOTEL_BOOKING">
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="HOTEL_ID" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
       <Column Name="PERSONS" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL" ThisKey="HOTEL_ID" OtherKey="HOTEL_ID" Type="HOTEL" IsForeignKey="true" />
       <Association Name="UserInfo_HOTEL_BOOKING" Member="UserInfo" ThisKey="Email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
+      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL" ThisKey="HOTEL_ID" OtherKey="HOTEL_ID" Type="HOTEL" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.AdminTable" Member="AdminTables">
@@ -64,6 +51,35 @@
       <Column Name="TOUR_INFO" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="pic" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="Tour_Tour_booking" Member="Tour_bookings" ThisKey="TOUR_ID" OtherKey="Tour_id" Type="Tour_booking" />
+    </Type>
+  </Table>
+  <Table Name="dbo.States" Member="States">
+    <Type Name="State">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="State_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Place" Member="Places">
+    <Type Name="Place">
+      <Column Name="place_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="pic" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOTELS" Member="HOTELs">
+    <Type Name="HOTEL">
+      <Column Name="HOTEL_ID" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HOTEL_NAME" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="STREET" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="STATE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PHONE1" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="PHONE2" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="ROOM_COST" Type="System.Decimal" DbType="Decimal(5,0)" CanBeNull="true" />
+      <Column Name="pic" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL_BOOKINGs" ThisKey="HOTEL_ID" OtherKey="HOTEL_ID" Type="HOTEL_BOOKING" />
     </Type>
   </Table>
 </Database>

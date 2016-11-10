@@ -1,20 +1,18 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Parent.Master" AutoEventWireup="true" CodeBehind="child.master.cs" Inherits="Travel_Management_System.NestedMasterPage1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parent.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Travel_Management_System.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
-    <style type="text/css">
-        .nav {
+    <style>
+        .nav{
             background-color:black;
-            
-        }   
+
+        }    
     </style>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="nav">
+     <div class="nav">
         
             <ul class="nav navbar-nav navbar-left" >
                 <li><a href="#"><span class="glyphicons glyphicons-home"></span>Home</a></li>
-                <li><a href="DisplayTour.aspx">Tours</a></li>  
+                <li><a href="DisplayTours.aspx">Tours</a></li>  
                 <li><a href="#">Hotels</a></li> 
                 <li><a href="#">Places</a></li>               
                 
@@ -30,9 +28,9 @@
             
        
         </div>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <div class="tours container-fluid">
+           </div>
+    <div  class="container-fluid">
 
-    </asp:ContentPlaceHolder>
-
+    </div>
 </asp:Content>
-

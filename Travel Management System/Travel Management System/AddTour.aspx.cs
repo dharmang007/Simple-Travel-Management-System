@@ -23,11 +23,10 @@ namespace Travel_Management_System
         {
             using (DataClasses1DataContext dataclass = new DataClasses1DataContext())
             {
-
-                
+              
                // tour.TOUR_ID = tour_id.Text;
                 tour.TOUR_NAME = tour_name.Text;
-                tour.PLACE = tour_place.Text;
+                tour.PLACE = DropDownList1.SelectedValue.ToString();
                 tour.DAYS = Convert.ToInt32(days.Text);
                 tour.LOCATIONS = locations.Text;
                 tour.PRICE = Convert.ToInt32(price.Text);
@@ -37,20 +36,18 @@ namespace Travel_Management_System
                 string str = Path.GetFileName(fileposted.FileName);
                 Stream stream = fileposted.InputStream;
                 BinaryReader br = new BinaryReader(stream);
-                br.ReadBytes((int)stream.Length);
-               
-      
+                br.ReadBytes((int)stream.Length);      
                 tour.pic = "~/Tour_pics/"+str;
-               fileposted.SaveAs(Server.MapPath("~/Tour_pics/")+str);
+                fileposted.SaveAs(Server.MapPath("~/Tour_pics/")+str);
                 
                 Label7.Text= FileUpload1.FileName;
                 dataclass.Tours.InsertOnSubmit(tour);
                 dataclass.SubmitChanges();
                 Info.Text = tour.TOUR_INFO.Replace("\r\n", "<br/>");
 
-                GridView1.DataSource = dataclass.Tours;
-                GridView1.DataBind();
-              
+               /* GridView1.DataSource = dataclass.Tours;
+                GridView1.DataBind();*/
+                Response.Redirect("DisplayTours.aspx");
 
 
             }

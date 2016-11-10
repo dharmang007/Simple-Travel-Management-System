@@ -34,8 +34,8 @@
     </style>
    
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
+ <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   <div class="container-fluid">
         <div class="row">
             <div class="user col-md-6">
                 <div class="page-header">
