@@ -14,10 +14,6 @@ namespace Travel_Management_System
        
 
         }
-
-        protected void picImg_Click(object sender, ImageClickEventArgs e)
-        {
-            Label1.Text = ListView1.SelectedValue.ToString() ;   
-        }
+        
     }
 }

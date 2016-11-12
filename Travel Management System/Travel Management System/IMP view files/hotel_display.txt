@@ -1,0 +1,61 @@
+﻿             <asp:ListView ID="ListView1" runat="server" DataKeyNames="hotel_id" ItemType="Travel_Management_System.HOTEL" GroupItemCount="3">
+                <AlternatingItemTemplate>
+                    <td runat="server" style="">
+                        <asp:Label ID="HOTEL_NAMELabel" runat="server" Text='<%#Item.HOTEL_NAME %>' />
+                        <br />
+                        <a href="HotelDetails.aspx?hotel_id='<%# Item.hotel_id %>'">
+                        <asp:Image ID="picimg" runat="server"  ImageURL='<%#Item.pic %>' width="500px" height="400px" />
+                            </a>
+                        <br /></td>
+                </AlternatingItemTemplate>
+                
+                <EmptyDataTemplate>
+                    <table runat="server" style="">
+                        <tr>
+                            <td>No data was returned.</td>
+                        </tr>
+                    </table>
+                </EmptyDataTemplate>
+                <EmptyItemTemplate>
+<td runat="server" />
+                </EmptyItemTemplate>
+                <GroupTemplate>
+                    <tr id="itemPlaceholderContainer" runat="server">
+                        <td id="itemPlaceholder" runat="server"></td>
+                    </tr>
+                </GroupTemplate>
+                
+                <ItemTemplate>
+                    <td runat="server" style="">
+                        <asp:Label ID="HOTEL_NAMELabel" runat="server" Text='<%#Item.HOTEL_NAME %>' />
+                        <br />
+                       <a href="HotelDetails.aspx?hotel_id='<%# Item.hotel_id %>'">
+                         <asp:Image ID="picimg" runat="server"  ImageURL='<%#Item.pic %>' width="500px" height="400px" />
+                            </a>
+                        <br /></td>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <table runat="server">
+                        <tr runat="server">
+                            <td runat="server">
+                                <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                    <tr id="groupPlaceholder" runat="server">
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr runat="server">
+                            <td runat="server" style=""></td>
+                        </tr>
+                    </table>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <td runat="server" style="">
+                        <asp:Label ID="HOTEL_NAMELabel" runat="server" Text='<%#Item.HOTEL_NAME %>' />
+                        <br />
+                        <a href="HotelDetails.aspx?hotel_id='<%# Item.hotel_id %>'">
+                       <asp:Image ID="picimg" runat="server"  ImageURL='<%#Item.pic %>' width="500px" height="400px" />
+                            </a>
+                        <br /></td>
+                </SelectedItemTemplate>
+            </asp:ListView>

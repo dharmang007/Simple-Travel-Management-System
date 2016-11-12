@@ -13,6 +13,15 @@ namespace Travel_Management_System {
     public partial class Hotel_Registration {
         
         /// <summary>
+        /// hotel_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox hotel_email;
+        
+        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace Travel_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox name;
+        
+        /// <summary>
+        /// pwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pwd;
+        
+        /// <summary>
+        /// pwd2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pwd2;
         
         /// <summary>
         /// street control.

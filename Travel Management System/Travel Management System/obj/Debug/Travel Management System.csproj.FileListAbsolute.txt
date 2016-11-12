@@ -43,6 +43,6 @@ C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management
 C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\bin\EntityFramework.xml
 C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\bin\EntityFramework.SqlServer.xml
 C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\obj\Debug\Travel Management System.csprojResolveAssemblyReference.cache
 C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\obj\Debug\Travel Management System.dll
 C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\obj\Debug\Travel Management System.pdb
+C:\Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\obj\Debug\Travel Management System.csprojResolveAssemblyReference.cache

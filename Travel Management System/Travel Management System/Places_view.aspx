@@ -2,18 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="UserProfileContent" runat="server">
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1" GroupItemCount="3" >
+    <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1" GroupItemCount="3" 
+        ItemType="Travel_Management_System.Place">
         <AlternatingItemTemplate>
-            <td runat="server" style="">pic:
-                <asp:ImageButton ID="picImg" runat="server" Height="300px" Width="400px" ImageUrl='<%# Eval("pic") %>'  OnClick="picImg_Click" />
+            <td runat="server" style="">
+                <a href="DisplayPlace.aspx"?placeid="<%#Item.place_id %>">
+                <asp:Image ID="picImg" runat="server" Height="300px" Width="400px" ImageUrl='<%# Eval("pic") %>' />
                 <br />
-                city:
+                </a>
                 <asp:Label ID="cityLabel" runat="server" Text='<%# Eval("city") %>' />
                 <br />
             </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <td runat="server" style="">pic:
+            <td runat="server" style="">
                 <asp:TextBox ID="picTextBox" runat="server" Text='<%# Bind("pic") %>' />
                 <br />
                 city:
@@ -55,7 +57,7 @@
         </InsertItemTemplate>
         <ItemTemplate>
             <td runat="server" style="">pic:
-                <asp:ImageButton ID="picImg" runat="server" Height="300px" Width="400px" ImageUrl='<%# Eval("pic") %>'  OnClick="picImg_Click" />
+                <asp:Image ID="picImg" runat="server" Height="300px" Width="400px" ImageUrl='<%# Eval("pic") %>' />
                 <br />
                 city:
                 <asp:Label ID="cityLabel" runat="server" Text='<%# Eval("city") %>' />
@@ -74,21 +76,21 @@
                 </tr>
                 <tr runat="server">
                     <td runat="server" style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+        <!--                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
                             </Fields>
-                        </asp:DataPager>
+                        </asp:DataPager>-->
                     </td>
                 </tr>
             </table>
         </LayoutTemplate>
         <SelectedItemTemplate>
             <td runat="server" style="">pic:
-                <asp:ImageButton ID="picImg" runat="server"
+                <asp:Image ID="picImg" runat="server"
                      Height="300px" Width="400px"
                      ImageUrl='<%# Eval("pic") %>' 
-                    OnClick="picImg_Click"
+                    
                    />
                 <br />
                 city:

@@ -13,19 +13,27 @@ namespace Travel_Management_System
        
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            if (DropDownList1.Items.FindByText("All") == null)
+           // if (Session["email"] != null)
             {
-                DropDownList1.Items.Add(new ListItem("All"));
+
+                if (DropDownList1.Items.FindByText("All") == null)
+                {
+                    DropDownList1.Items.Add(new ListItem("All"));
+                }
+                var db = new DataClasses1DataContext();
+                IQueryable<Tour> query;
+                query = from i in db.Tours
+                        select i;
+
+                ListView1.DataSource = query;
+                ListView1.DataBind();
+
             }
-            var db = new DataClasses1DataContext();
-            IQueryable<Tour> query;
-            query = from i in db.Tours
-                    select i;
-            
-            ListView1.DataSource = query;
-            ListView1.DataBind();
-        }
+  //          else
+            {
+           //     Response.Redirect("userlogin.aspx");
+            }
+            }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {

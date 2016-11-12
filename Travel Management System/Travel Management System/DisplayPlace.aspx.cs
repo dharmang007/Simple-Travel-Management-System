@@ -13,7 +13,8 @@ namespace Travel_Management_System
         {
             if (PreviousPage != null)
             {
-                
+                Label l1 = new Label();
+                l1.Text=Request.QueryString["placeid"];
             }
 
         }

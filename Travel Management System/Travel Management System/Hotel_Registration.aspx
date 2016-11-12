@@ -27,12 +27,36 @@
         </div>
         <div class="row">
             <div class="form-horizontal col-md-7">
+                <div class="form-group">
+                <div class="control-label col-md-3">
+                    <asp:label runat="server" text="Email"></asp:label>
+                </div>
+                <div class="col-md-5">
+                    <asp:textbox id="hotel_email" TextMode="Email" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:label runat="server" text="Hotel Name"></asp:label>
                 </div>
                 <div class="col-md-5">
                     <asp:textbox id="name" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                </div>
+            </div>
+                <div class="form-group">
+                <div class="control-label col-md-3">
+                    <asp:label runat="server" text="Password"></asp:label>
+                </div>
+                <div class="col-md-5">
+                    <asp:textbox id="pwd" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                </div>
+            </div>
+                <div class="form-group">
+                <div class="control-label col-md-3">
+                    <asp:label runat="server" text="Re-enter Password"></asp:label>
+                </div>
+                <div class="col-md-5">
+                    <asp:textbox id="pwd2" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
             <div class="form-group">

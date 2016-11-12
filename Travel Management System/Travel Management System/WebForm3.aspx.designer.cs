@@ -10,6 +10,6 @@
 namespace Travel_Management_System {
     
     
-    public partial class index {
+    public partial class WebForm3 {
     }
 }

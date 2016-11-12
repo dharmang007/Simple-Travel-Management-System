@@ -1,4 +1,4 @@
-﻿dhaa<%@ Page Title="" Language="C#" MasterPageFile="~/ChildUser.master" AutoEventWireup="true" CodeBehind="DisplayTours.aspx.cs" Inherits="Travel_Management_System.DisplayTours" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ChildUser.master" AutoEventWireup="true" CodeBehind="DisplayTours.aspx.cs" Inherits="Travel_Management_System.DisplayTours" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <style type="text/css">
         ListView1 li{
@@ -19,7 +19,8 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TravelDatabaseConnectionString %>" SelectCommand="SELECT distinct [PLACE] FROM [Tour]"></asp:SqlDataSource>
     <asp:ListView ID="ListView1" runat="server" GroupItemCount="3"
         DataKeyNames="TOUR_ID"
-        ItemType="Travel_Management_System.Tour"            
+        ItemType="Travel_Management_System.Tour"  
+         HorizontalAlign="Center"        
         >
 
 
@@ -45,7 +46,7 @@
                 <div class="content">
                     <asp:Label ID="headerLabel" runat="server" Text='<%# Item.TOUR_NAME %>' />
                 </div>
-                <a href="TourDetails.aspx?tour_id=<%#:Item.TOUR_ID %>">
+                <a href="TourDetails.aspx?tour_id=<%#Item.TOUR_ID %>">
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Item.pic %>' Width="400px" Height="400px" />
                 </a>
                 <br />
