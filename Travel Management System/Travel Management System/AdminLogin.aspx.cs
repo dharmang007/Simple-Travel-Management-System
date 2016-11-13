@@ -19,7 +19,7 @@ namespace Travel_Management_System
             var db = new DataClasses1DataContext();
             AdminTable admin = new AdminTable();
             var q = from i in db.AdminTables
-                    select new { i.username, i.password };
+                    select i;
             foreach(var i in q )
             {
                 if(i.username == uname.Text && i.password == password.Text)
