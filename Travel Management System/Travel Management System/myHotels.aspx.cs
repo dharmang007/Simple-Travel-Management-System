@@ -7,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Travel_Management_System
 {
-    public partial class ChildUser : System.Web.UI.MasterPage
+    public partial class myHotels : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Session["email"] = null;
-            
-            Response.Redirect("userlogin.aspx");
         }
     }
 }

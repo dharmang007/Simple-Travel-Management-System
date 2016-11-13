@@ -26,21 +26,23 @@
             <ul class="nav navbar-nav navbar-left" >
                <li> <a href="#"><span class="glyphicons glyphicons-home">Home</span></a></li>
                 <li><a href="DisplayTours.aspx">Tours</a></li>  
-                <li><a href="#">Hotels</a></li> 
+                <li><a href="DisplayHotels.aspx">Hotels</a></li> 
                 <li><a href="Places_view.aspx">Places</a></li>               
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="userlogin.aspx">Log Out</a></li>
+                <li>
+                    <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="LogOut" /></li>
                 <li><a href="Profile.aspx">Profile</a></li>
             </ul>    
-            
-       
-            <br />
-            <br />
-            
-       
+               
         </div>
+        <ul class="nav nav-tabs">
+         <li><a href="MainProfilePage.aspx"> Profile Page </a></li>    
+         <li><a href="myTours.aspx">Your tours</a></li>   
+         <li><a href="myHotels.aspx">Your Hotels</a></li>    
+         <li><a href="Profile.aspx">Edit User Details</a></li>    
+    </ul>
        
     <asp:ContentPlaceHolder ID="UserProfileContent" runat="server">
 

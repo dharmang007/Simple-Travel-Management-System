@@ -24,11 +24,14 @@ namespace Travel_Management_System
             if (tour_id != null)
             {
                 tour = db.Tours.SingleOrDefault(i => i.TOUR_ID == tour_id);
+                Session["t_id"] = tour.TOUR_ID;
                 Session["t_name"] = tour.TOUR_NAME;
                 Session["t_days"] = tour.DAYS;
                 Session["t_price"] = tour.PRICE;
                 Session["t_place"] = tour.PLACE;
                 Session["t_location"] = tour.LOCATIONS;
+                
+                tour.TOUR_INFO.Replace("\r\n", "<br/>");
                 return tour;
             }
             else {
@@ -38,7 +41,7 @@ namespace Travel_Management_System
 
         protected void BookNow_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Booking_tour.aspx");
+            Response.Redirect("TourBooking.aspx");
         }
     }
 }

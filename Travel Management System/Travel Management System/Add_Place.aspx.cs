@@ -46,6 +46,6 @@ namespace Travel_Management_System
             Response.Redirect("DisplayPlace.aspx");
 
         }
-       
+
     }
 }

@@ -46,7 +46,7 @@
                         <div class="control-label col-sm-3">
                             <asp:Label ID="l1" runat="server" Text="Email" />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <asp:TextBox ID="email" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>
@@ -54,12 +54,12 @@
                         <div class="control-label col-sm-3">
                             <asp:Label ID="p_label" runat="server" Text="Password" />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <asp:TextBox ID="password" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="control-label col-sm-3">
+                        <div class="control-label col-sm-5">
                             <asp:Button ID="Button1" CssClass="btn-primary " runat="server" Text="Login" OnClick="login"/>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="control-label col-sm-3">
                             <asp:Label ID="Label1" runat="server" Text="Email" />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <asp:TextBox ID="TextBox1" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="control-label col-sm-3">
                             <asp:Label ID="Label2" runat="server" Text="Password" />
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <asp:TextBox ID="TextBox2" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>

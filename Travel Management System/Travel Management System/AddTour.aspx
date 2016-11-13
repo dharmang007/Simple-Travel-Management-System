@@ -7,6 +7,7 @@
             }
             .form-horizontal {
                 font-size: 30px;
+                text-align:center;
             }
             .row .form-horizontal {
                 border-right: 1px double;
@@ -81,14 +82,5 @@
         <asp:Image ID="Image1" runat="server" />    
     </div> 
         </div>
-    <div class="View-section" contenteditable="true">
-        <h2>Info::
-        
-        <asp:Label  ID="Info" runat="server" Height="30px" Width="25%">
-            </h2>
-        </asp:Label>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true">
-
-        </asp:GridView>
-    </div>
+    
 </asp:Content>

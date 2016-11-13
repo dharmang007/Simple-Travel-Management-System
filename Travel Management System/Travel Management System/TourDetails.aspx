@@ -25,25 +25,31 @@
             <div class="form-horizontal col-md-6">      
             <div class="form-group">
                 <div class="control-label">
-                    <asp:Label id="l1"  runat="server" text="<%# Item.PLACE %>"/>
+                  Place:  <asp:Label id="l1"  runat="server" text="<%# Item.PLACE %>"/>
                 </div>    
             </div>
             <div class="form-group">
                 <div class="control-label">
-                    <asp:Label id="Label4" runat="server" text="<%# Item.LOCATIONS %>"/>
+                    Locations:<asp:Label id="Label4" runat="server" text="<%# Item.LOCATIONS %>"/>
                 </div>              
             </div>
             <div class="form-group">
                 <div class="control-label">
-                    <asp:Label id="Label5" runat="server" text="<%# Item.DAYS %>"/>
+                    Days:<asp:Label id="Label5" runat="server" text="<%# Item.DAYS %>"/>
                 </div>                   
             </div>    
             <div class="form-group">
                 <div class="control-label">
-                    <asp:Label id="Label6" runat="server" text="<%# Item.PRICE %>"/>
+                  Price(per person) :<asp:Label id="Label6" runat="server" text="<%# Item.PRICE %>"/>
                 </div>
              
-        </div><br/>        
+        </div><br/> 
+                <div class="form-group">
+                <div class="control-label">
+                  Tour Info :<asp:Label id="Label1" runat="server" text="<%# Item.TOUR_INFO %>"/>
+                </div>
+             
+        </div>       
         <div style="text-align:center">           
                    
                        <asp:Button BackColor="#cc6600" ID="BookNow" runat="server" OnClick="BookNow_Click" Text="Book Now" ForeColor="Black"/>

@@ -4,6 +4,9 @@
         .page-header {
             text-align:center;
         }
+        .Admin_login{
+            text-align:center;
+        }
 
             
     </style>
@@ -15,7 +18,7 @@
    <div class="Admin_login form-horizontal">
                     <div class="form-group row">
                         <div class="control-label col-sm-3">
-                            <asp:Label ID="l1" runat="server" Text="Useranme" />
+                            <asp:Label ID="l1" runat="server" Text="Username" />
                         </div>
                         <div class="col-sm-4">
                             <asp:TextBox ID="uname" ForeColor="Black" class="form-control" runat="server" />
@@ -31,11 +34,11 @@
                     </div>
                     <div class="form-group row">
                         <div class="control-label col-sm-3">
-                           <asp:Button ID="Button1" CssClass="btn-primary " runat="server" Text="Login"/>
+                           <asp:Button ID="Button1" onclick="Button1_Click" CssClass="btn-primary " runat="server" Text="Login"/>
                         </div>
                     </div>
                     <br/>
-                    <asp:Label ID="login_error" CssClass="alert-info" ForeColor="#ff3300" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="login_error" CssClass="alert-info"  ForeColor="#ff3300" runat="server" Visible="False"></asp:Label>
                 </div>
             
 

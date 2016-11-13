@@ -17,7 +17,7 @@ namespace Travel_Management_System
             {
                 Response.Redirect("userlogin.aspx");
             }
-            string str_email = Session["email"].ToString();
+            
         }
 
     }

@@ -49,26 +49,6 @@
       <Column Name="pic" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Tour_booking" Member="Tour_bookings">
-    <Type Name="Tour_booking">
-      <Column Name="Booking_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tour_id" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
-      <Column Name="No_of_persons" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="UserInfo_Tour_booking" Member="UserInfo" ThisKey="Email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
-      <Association Name="Tour_Tour_booking" Member="Tour" ThisKey="Tour_id" OtherKey="TOUR_ID" Type="Tour" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HOTEL_BOOKING" Member="HOTEL_BOOKINGs">
-    <Type Name="HOTEL_BOOKING">
-      <Column Name="user_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="hotel_id" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Column Name="PERSONS" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Column Name="id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="UserInfo_HOTEL_BOOKING" Member="UserInfo" ThisKey="user_email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
-      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL" ThisKey="hotel_id" OtherKey="hotel_id" Type="HOTEL" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.HOTELS" Member="HOTELs">
     <Type Name="HOTEL">
       <Column Name="hotel_email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
@@ -83,6 +63,28 @@
       <Column Name="password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
       <Column Name="hotel_id" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL_BOOKINGs" ThisKey="hotel_id" OtherKey="hotel_id" Type="HOTEL_BOOKING" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tour_booking" Member="Tour_bookings">
+    <Type Name="Tour_booking">
+      <Column Name="Booking_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tour_id" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="No_of_persons" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Total_cost" Type="System.Decimal" DbType="Decimal(8,0) NOT NULL" CanBeNull="false" />
+      <Association Name="UserInfo_Tour_booking" Member="UserInfo" ThisKey="Email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
+      <Association Name="Tour_Tour_booking" Member="Tour" ThisKey="Tour_id" OtherKey="TOUR_ID" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOTEL_BOOKING" Member="HOTEL_BOOKINGs">
+    <Type Name="HOTEL_BOOKING">
+      <Column Name="user_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="hotel_id" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PERSONS" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Total_Cost" Type="System.Decimal" DbType="Decimal(8,0) NOT NULL" CanBeNull="false" />
+      <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL" ThisKey="hotel_id" OtherKey="hotel_id" Type="HOTEL" IsForeignKey="true" />
+      <Association Name="UserInfo_HOTEL_BOOKING" Member="UserInfo" ThisKey="user_email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

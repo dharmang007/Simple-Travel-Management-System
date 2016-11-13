@@ -16,10 +16,20 @@ namespace Travel_Management_System
             string str = Request.QueryString["hotel_id"];
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            var db = new DataClasses1DataContext();
+            HOTEL h = new HOTEL();
+            Session["h_id"] = Request.QueryString["hotel_id"];
+            h= db.HOTELs.SingleOrDefault(i=>i.hotel_id == Convert.ToInt32(Session["h_id"]));
+            Session["h_price"] = h.ROOM_COST;
+            Response.Redirect("HotelBooking.aspx");
+        }
+
 
         // The id parameter should match the DataKeyNames value set on the control
         // or be decorated with a value provider attribute, e.g. [QueryString]int id
-      
-       
+
+
     }
 }

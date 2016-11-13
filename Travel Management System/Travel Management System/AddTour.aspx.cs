@@ -30,7 +30,7 @@ namespace Travel_Management_System
                 tour.DAYS = Convert.ToInt32(days.Text);
                 tour.LOCATIONS = locations.Text;
                 tour.PRICE = Convert.ToInt32(price.Text);
-                tour.TOUR_INFO = tour_info.Text;
+                tour.TOUR_INFO = tour_info.Text.Replace("\r\n", "<br/>");
                 //tour.pic = FileUpload1.FileBytes;
                 HttpPostedFile fileposted =   FileUpload1.PostedFile;
                 string str = Path.GetFileName(fileposted.FileName);
@@ -43,11 +43,10 @@ namespace Travel_Management_System
                 Label7.Text= FileUpload1.FileName;
                 dataclass.Tours.InsertOnSubmit(tour);
                 dataclass.SubmitChanges();
-                Info.Text = tour.TOUR_INFO.Replace("\r\n", "<br/>");
-
+               
                /* GridView1.DataSource = dataclass.Tours;
                 GridView1.DataBind();*/
-                Response.Redirect("DisplayTours.aspx");
+                Response.Redirect("AdminProfile.aspx");
 
 
             }

@@ -11,21 +11,14 @@
 
 <asp:Content ID="con1" ContentPlaceHolderID="UserProfileContent" runat="server">
     
-    <p><h1>Welcome </p><asp:Label ID="l1"  runat="server" Visible="False" />
-    <div class="UserInfoTable">
-        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="LinqDataSource1">
-            <Fields>
-                <asp:BoundField DataField="Email" HeaderText="Email" ReadOnly="True" SortExpression="Email" />
-                <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="True" SortExpression="FirstName" />
-                <asp:BoundField DataField="LastName" HeaderText="LastName" ReadOnly="True" SortExpression="LastName" />
-                <asp:BoundField DataField="Gender" HeaderText="Gender" ReadOnly="True" SortExpression="Gender" />
-                <asp:BoundField DataField="dob" HeaderText="dob" ReadOnly="True" SortExpression="dob" />
-                <asp:BoundField DataField="Street" HeaderText="Street" ReadOnly="True" SortExpression="Street" />
-                <asp:BoundField DataField="City" HeaderText="City" ReadOnly="True" SortExpression="City" />
-                <asp:BoundField DataField="State" HeaderText="State" ReadOnly="True" SortExpression="State" />
-            </Fields>
-        </asp:DetailsView>
     
+    <asp:DetailsView ID="DetailsView1" runat="server" HorizontalAlign="Center" Height="50px" Width="70%" AutoGenerateEditButton="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="LinqDataSource1">
+        <EditRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+        <FooterStyle BackColor="White" ForeColor="#000066" />
+        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+        <RowStyle ForeColor="#000066" />
+    </asp:DetailsView>
 
       
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Travel_Management_System.DataClasses1DataContext" EntityTypeName="" Select="new (Email, FirstName, LastName, Gender, dob, Street, City, State)" TableName="UserInfos" Where="Email == @Email">
@@ -36,7 +29,7 @@
     
 
       
-    </div>
+   
                                                     
                         
     

@@ -45,15 +45,15 @@ namespace Travel_Management_System
     partial void InsertPlace(Place instance);
     partial void UpdatePlace(Place instance);
     partial void DeletePlace(Place instance);
+    partial void InsertHOTEL(HOTEL instance);
+    partial void UpdateHOTEL(HOTEL instance);
+    partial void DeleteHOTEL(HOTEL instance);
     partial void InsertTour_booking(Tour_booking instance);
     partial void UpdateTour_booking(Tour_booking instance);
     partial void DeleteTour_booking(Tour_booking instance);
     partial void InsertHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void UpdateHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void DeleteHOTEL_BOOKING(HOTEL_BOOKING instance);
-    partial void InsertHOTEL(HOTEL instance);
-    partial void UpdateHOTEL(HOTEL instance);
-    partial void DeleteHOTEL(HOTEL instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -126,6 +126,14 @@ namespace Travel_Management_System
 			}
 		}
 		
+		public System.Data.Linq.Table<HOTEL> HOTELs
+		{
+			get
+			{
+				return this.GetTable<HOTEL>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Tour_booking> Tour_bookings
 		{
 			get
@@ -139,14 +147,6 @@ namespace Travel_Management_System
 			get
 			{
 				return this.GetTable<HOTEL_BOOKING>();
-			}
-		}
-		
-		public System.Data.Linq.Table<HOTEL> HOTELs
-		{
-			get
-			{
-				return this.GetTable<HOTEL>();
 			}
 		}
 	}
@@ -1049,438 +1049,6 @@ namespace Travel_Management_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tour_booking")]
-	public partial class Tour_booking : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Booking_id;
-		
-		private string _Email;
-		
-		private decimal _Tour_id;
-		
-		private int _No_of_persons;
-		
-		private EntityRef<UserInfo> _UserInfo;
-		
-		private EntityRef<Tour> _Tour;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBooking_idChanging(int value);
-    partial void OnBooking_idChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnTour_idChanging(decimal value);
-    partial void OnTour_idChanged();
-    partial void OnNo_of_personsChanging(int value);
-    partial void OnNo_of_personsChanged();
-    #endregion
-		
-		public Tour_booking()
-		{
-			this._UserInfo = default(EntityRef<UserInfo>);
-			this._Tour = default(EntityRef<Tour>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Booking_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Booking_id
-		{
-			get
-			{
-				return this._Booking_id;
-			}
-			set
-			{
-				if ((this._Booking_id != value))
-				{
-					this.OnBooking_idChanging(value);
-					this.SendPropertyChanging();
-					this._Booking_id = value;
-					this.SendPropertyChanged("Booking_id");
-					this.OnBooking_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					if (this._UserInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tour_id", DbType="Decimal(5,0) NOT NULL")]
-		public decimal Tour_id
-		{
-			get
-			{
-				return this._Tour_id;
-			}
-			set
-			{
-				if ((this._Tour_id != value))
-				{
-					if (this._Tour.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTour_idChanging(value);
-					this.SendPropertyChanging();
-					this._Tour_id = value;
-					this.SendPropertyChanged("Tour_id");
-					this.OnTour_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_No_of_persons", DbType="Int NOT NULL")]
-		public int No_of_persons
-		{
-			get
-			{
-				return this._No_of_persons;
-			}
-			set
-			{
-				if ((this._No_of_persons != value))
-				{
-					this.OnNo_of_personsChanging(value);
-					this.SendPropertyChanging();
-					this._No_of_persons = value;
-					this.SendPropertyChanged("No_of_persons");
-					this.OnNo_of_personsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserInfo_Tour_booking", Storage="_UserInfo", ThisKey="Email", OtherKey="Email", IsForeignKey=true)]
-		public UserInfo UserInfo
-		{
-			get
-			{
-				return this._UserInfo.Entity;
-			}
-			set
-			{
-				UserInfo previousValue = this._UserInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._UserInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserInfo.Entity = null;
-						previousValue.Tour_bookings.Remove(this);
-					}
-					this._UserInfo.Entity = value;
-					if ((value != null))
-					{
-						value.Tour_bookings.Add(this);
-						this._Email = value.Email;
-					}
-					else
-					{
-						this._Email = default(string);
-					}
-					this.SendPropertyChanged("UserInfo");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tour_Tour_booking", Storage="_Tour", ThisKey="Tour_id", OtherKey="TOUR_ID", IsForeignKey=true)]
-		public Tour Tour
-		{
-			get
-			{
-				return this._Tour.Entity;
-			}
-			set
-			{
-				Tour previousValue = this._Tour.Entity;
-				if (((previousValue != value) 
-							|| (this._Tour.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tour.Entity = null;
-						previousValue.Tour_bookings.Remove(this);
-					}
-					this._Tour.Entity = value;
-					if ((value != null))
-					{
-						value.Tour_bookings.Add(this);
-						this._Tour_id = value.TOUR_ID;
-					}
-					else
-					{
-						this._Tour_id = default(decimal);
-					}
-					this.SendPropertyChanged("Tour");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTEL_BOOKING")]
-	public partial class HOTEL_BOOKING : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _user_email;
-		
-		private decimal _hotel_id;
-		
-		private decimal _PERSONS;
-		
-		private decimal _id;
-		
-		private EntityRef<UserInfo> _UserInfo;
-		
-		private EntityRef<HOTEL> _HOTEL;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onuser_emailChanging(string value);
-    partial void Onuser_emailChanged();
-    partial void Onhotel_idChanging(decimal value);
-    partial void Onhotel_idChanged();
-    partial void OnPERSONSChanging(decimal value);
-    partial void OnPERSONSChanged();
-    partial void OnidChanging(decimal value);
-    partial void OnidChanged();
-    #endregion
-		
-		public HOTEL_BOOKING()
-		{
-			this._UserInfo = default(EntityRef<UserInfo>);
-			this._HOTEL = default(EntityRef<HOTEL>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string user_email
-		{
-			get
-			{
-				return this._user_email;
-			}
-			set
-			{
-				if ((this._user_email != value))
-				{
-					if (this._UserInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onuser_emailChanging(value);
-					this.SendPropertyChanging();
-					this._user_email = value;
-					this.SendPropertyChanged("user_email");
-					this.Onuser_emailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hotel_id", DbType="Decimal(3,0) NOT NULL")]
-		public decimal hotel_id
-		{
-			get
-			{
-				return this._hotel_id;
-			}
-			set
-			{
-				if ((this._hotel_id != value))
-				{
-					if (this._HOTEL.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onhotel_idChanging(value);
-					this.SendPropertyChanging();
-					this._hotel_id = value;
-					this.SendPropertyChanged("hotel_id");
-					this.Onhotel_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERSONS", DbType="Decimal(3,0) NOT NULL")]
-		public decimal PERSONS
-		{
-			get
-			{
-				return this._PERSONS;
-			}
-			set
-			{
-				if ((this._PERSONS != value))
-				{
-					this.OnPERSONSChanging(value);
-					this.SendPropertyChanging();
-					this._PERSONS = value;
-					this.SendPropertyChanged("PERSONS");
-					this.OnPERSONSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserInfo_HOTEL_BOOKING", Storage="_UserInfo", ThisKey="user_email", OtherKey="Email", IsForeignKey=true)]
-		public UserInfo UserInfo
-		{
-			get
-			{
-				return this._UserInfo.Entity;
-			}
-			set
-			{
-				UserInfo previousValue = this._UserInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._UserInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserInfo.Entity = null;
-						previousValue.HOTEL_BOOKINGs.Remove(this);
-					}
-					this._UserInfo.Entity = value;
-					if ((value != null))
-					{
-						value.HOTEL_BOOKINGs.Add(this);
-						this._user_email = value.Email;
-					}
-					else
-					{
-						this._user_email = default(string);
-					}
-					this.SendPropertyChanged("UserInfo");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL", ThisKey="hotel_id", OtherKey="hotel_id", IsForeignKey=true)]
-		public HOTEL HOTEL
-		{
-			get
-			{
-				return this._HOTEL.Entity;
-			}
-			set
-			{
-				HOTEL previousValue = this._HOTEL.Entity;
-				if (((previousValue != value) 
-							|| (this._HOTEL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._HOTEL.Entity = null;
-						previousValue.HOTEL_BOOKINGs.Remove(this);
-					}
-					this._HOTEL.Entity = value;
-					if ((value != null))
-					{
-						value.HOTEL_BOOKINGs.Add(this);
-						this._hotel_id = value.hotel_id;
-					}
-					else
-					{
-						this._hotel_id = default(decimal);
-					}
-					this.SendPropertyChanged("HOTEL");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTELS")]
 	public partial class HOTEL : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1808,6 +1376,486 @@ namespace Travel_Management_System
 		{
 			this.SendPropertyChanging();
 			entity.HOTEL = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tour_booking")]
+	public partial class Tour_booking : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Booking_id;
+		
+		private string _Email;
+		
+		private decimal _Tour_id;
+		
+		private decimal _No_of_persons;
+		
+		private decimal _Total_cost;
+		
+		private EntityRef<UserInfo> _UserInfo;
+		
+		private EntityRef<Tour> _Tour;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBooking_idChanging(int value);
+    partial void OnBooking_idChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnTour_idChanging(decimal value);
+    partial void OnTour_idChanged();
+    partial void OnNo_of_personsChanging(decimal value);
+    partial void OnNo_of_personsChanged();
+    partial void OnTotal_costChanging(decimal value);
+    partial void OnTotal_costChanged();
+    #endregion
+		
+		public Tour_booking()
+		{
+			this._UserInfo = default(EntityRef<UserInfo>);
+			this._Tour = default(EntityRef<Tour>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Booking_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Booking_id
+		{
+			get
+			{
+				return this._Booking_id;
+			}
+			set
+			{
+				if ((this._Booking_id != value))
+				{
+					this.OnBooking_idChanging(value);
+					this.SendPropertyChanging();
+					this._Booking_id = value;
+					this.SendPropertyChanged("Booking_id");
+					this.OnBooking_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					if (this._UserInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tour_id", DbType="Decimal(5,0) NOT NULL")]
+		public decimal Tour_id
+		{
+			get
+			{
+				return this._Tour_id;
+			}
+			set
+			{
+				if ((this._Tour_id != value))
+				{
+					if (this._Tour.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTour_idChanging(value);
+					this.SendPropertyChanging();
+					this._Tour_id = value;
+					this.SendPropertyChanged("Tour_id");
+					this.OnTour_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_No_of_persons", DbType="Decimal(2,0) NOT NULL")]
+		public decimal No_of_persons
+		{
+			get
+			{
+				return this._No_of_persons;
+			}
+			set
+			{
+				if ((this._No_of_persons != value))
+				{
+					this.OnNo_of_personsChanging(value);
+					this.SendPropertyChanging();
+					this._No_of_persons = value;
+					this.SendPropertyChanged("No_of_persons");
+					this.OnNo_of_personsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_cost", DbType="Decimal(8,0) NOT NULL")]
+		public decimal Total_cost
+		{
+			get
+			{
+				return this._Total_cost;
+			}
+			set
+			{
+				if ((this._Total_cost != value))
+				{
+					this.OnTotal_costChanging(value);
+					this.SendPropertyChanging();
+					this._Total_cost = value;
+					this.SendPropertyChanged("Total_cost");
+					this.OnTotal_costChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserInfo_Tour_booking", Storage="_UserInfo", ThisKey="Email", OtherKey="Email", IsForeignKey=true)]
+		public UserInfo UserInfo
+		{
+			get
+			{
+				return this._UserInfo.Entity;
+			}
+			set
+			{
+				UserInfo previousValue = this._UserInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._UserInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserInfo.Entity = null;
+						previousValue.Tour_bookings.Remove(this);
+					}
+					this._UserInfo.Entity = value;
+					if ((value != null))
+					{
+						value.Tour_bookings.Add(this);
+						this._Email = value.Email;
+					}
+					else
+					{
+						this._Email = default(string);
+					}
+					this.SendPropertyChanged("UserInfo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tour_Tour_booking", Storage="_Tour", ThisKey="Tour_id", OtherKey="TOUR_ID", IsForeignKey=true)]
+		public Tour Tour
+		{
+			get
+			{
+				return this._Tour.Entity;
+			}
+			set
+			{
+				Tour previousValue = this._Tour.Entity;
+				if (((previousValue != value) 
+							|| (this._Tour.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tour.Entity = null;
+						previousValue.Tour_bookings.Remove(this);
+					}
+					this._Tour.Entity = value;
+					if ((value != null))
+					{
+						value.Tour_bookings.Add(this);
+						this._Tour_id = value.TOUR_ID;
+					}
+					else
+					{
+						this._Tour_id = default(decimal);
+					}
+					this.SendPropertyChanged("Tour");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOTEL_BOOKING")]
+	public partial class HOTEL_BOOKING : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _user_email;
+		
+		private decimal _hotel_id;
+		
+		private decimal _PERSONS;
+		
+		private int _id;
+		
+		private decimal _Total_Cost;
+		
+		private EntityRef<HOTEL> _HOTEL;
+		
+		private EntityRef<UserInfo> _UserInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onuser_emailChanging(string value);
+    partial void Onuser_emailChanged();
+    partial void Onhotel_idChanging(decimal value);
+    partial void Onhotel_idChanged();
+    partial void OnPERSONSChanging(decimal value);
+    partial void OnPERSONSChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnTotal_CostChanging(decimal value);
+    partial void OnTotal_CostChanged();
+    #endregion
+		
+		public HOTEL_BOOKING()
+		{
+			this._HOTEL = default(EntityRef<HOTEL>);
+			this._UserInfo = default(EntityRef<UserInfo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string user_email
+		{
+			get
+			{
+				return this._user_email;
+			}
+			set
+			{
+				if ((this._user_email != value))
+				{
+					if (this._UserInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onuser_emailChanging(value);
+					this.SendPropertyChanging();
+					this._user_email = value;
+					this.SendPropertyChanged("user_email");
+					this.Onuser_emailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hotel_id", DbType="Decimal(3,0) NOT NULL")]
+		public decimal hotel_id
+		{
+			get
+			{
+				return this._hotel_id;
+			}
+			set
+			{
+				if ((this._hotel_id != value))
+				{
+					if (this._HOTEL.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onhotel_idChanging(value);
+					this.SendPropertyChanging();
+					this._hotel_id = value;
+					this.SendPropertyChanged("hotel_id");
+					this.Onhotel_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERSONS", DbType="Decimal(3,0) NOT NULL")]
+		public decimal PERSONS
+		{
+			get
+			{
+				return this._PERSONS;
+			}
+			set
+			{
+				if ((this._PERSONS != value))
+				{
+					this.OnPERSONSChanging(value);
+					this.SendPropertyChanging();
+					this._PERSONS = value;
+					this.SendPropertyChanged("PERSONS");
+					this.OnPERSONSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total_Cost", DbType="Decimal(8,0) NOT NULL")]
+		public decimal Total_Cost
+		{
+			get
+			{
+				return this._Total_Cost;
+			}
+			set
+			{
+				if ((this._Total_Cost != value))
+				{
+					this.OnTotal_CostChanging(value);
+					this.SendPropertyChanging();
+					this._Total_Cost = value;
+					this.SendPropertyChanged("Total_Cost");
+					this.OnTotal_CostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOTEL_HOTEL_BOOKING", Storage="_HOTEL", ThisKey="hotel_id", OtherKey="hotel_id", IsForeignKey=true)]
+		public HOTEL HOTEL
+		{
+			get
+			{
+				return this._HOTEL.Entity;
+			}
+			set
+			{
+				HOTEL previousValue = this._HOTEL.Entity;
+				if (((previousValue != value) 
+							|| (this._HOTEL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._HOTEL.Entity = null;
+						previousValue.HOTEL_BOOKINGs.Remove(this);
+					}
+					this._HOTEL.Entity = value;
+					if ((value != null))
+					{
+						value.HOTEL_BOOKINGs.Add(this);
+						this._hotel_id = value.hotel_id;
+					}
+					else
+					{
+						this._hotel_id = default(decimal);
+					}
+					this.SendPropertyChanged("HOTEL");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserInfo_HOTEL_BOOKING", Storage="_UserInfo", ThisKey="user_email", OtherKey="Email", IsForeignKey=true)]
+		public UserInfo UserInfo
+		{
+			get
+			{
+				return this._UserInfo.Entity;
+			}
+			set
+			{
+				UserInfo previousValue = this._UserInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._UserInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UserInfo.Entity = null;
+						previousValue.HOTEL_BOOKINGs.Remove(this);
+					}
+					this._UserInfo.Entity = value;
+					if ((value != null))
+					{
+						value.HOTEL_BOOKINGs.Add(this);
+						this._user_email = value.Email;
+					}
+					else
+					{
+						this._user_email = default(string);
+					}
+					this.SendPropertyChanged("UserInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

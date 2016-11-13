@@ -1,23 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="Travel_Management_System.WebForm3" %>
-
-<!DOCTYPE html>
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
-    
-        <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
-        <link href="Content/bootstrap.css" rel="stylesheet" />
-        <link href="Content/bootstrap.min.css" rel="stylesheet" />
-        <script src="Scripts/bootstrap.js"></script>
-        <script src="Scripts/bootstrap.min.js"></script>
-        <script src="Scripts/jquery-1.9.1.intellisense.js"></script>
-        <script src="Scripts/jquery-1.9.1.min.js"></script>
-        <script src="Scripts/jquery-1.9.1.js"></script>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ChildUser.master" AutoEventWireup="true" CodeBehind="MainProfilePage.aspx.cs" Inherits="Travel_Management_System.MainProfilePage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <style>
-        .jumbotron {
+        .body{
+            background-image:none;
+        }
+        .tour {
             background-image: url('../Pics/HomePagePic.jpg');
              background-size: cover;
             text-align:center;
@@ -32,18 +19,18 @@
             color:white;
            
         }
-        .jumbotron .a{
+        .tour .a{
             font-size:larger;
             background-color:darkslateblue;
             color:white;
             
         }
-        .jumbotron .p{
+        .tour .p{
             text-align:center;
             
             color:white;         
         }
-        .jumbotron h2{
+        .tour h2{
             align-items:center;
         }
         .hotel {
@@ -66,12 +53,15 @@
      
      
 </style>
-</head>
-<body>
-   <div class="no-padding">
-    <div class="jumbotron tour">        
-            <h2>
-              </br> </br> </br>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="UserProfileContent" runat="server">
+        
+    <div class="welcome" style="text-align:center">
+        <asp:Label ID="Label1" runat="server" ></asp:Label>
+    </div>
+    <div class="tour">    
+                    <h2>
+              <br/> <br/> <br/>
                 <a href="DisplayTours.aspx" class="btn btn-primary" style="width:300px; height:50px ; font-size:x-large;"   >Explore the Tours!</a><br/><br/><br/>
                 <p class="label-info">
                     Find the best tour packages without any hustle.<br/>
@@ -83,7 +73,7 @@
     <div class="hotel" >        
             <h2>
               <br/><br/><br/>
-                <a href="DisplayTours.aspx" class="btn btn-primary" style="width:300px; height:50px; font-size:x-large;color:white; background-color:black;" >Explore the Hotel!</a><br/><br/><br/><br/>
+                <a href="DisplayHotels.aspx" class="btn btn-primary" style="width:300px; height:50px; font-size:x-large;color:white; background-color:black;" >Explore the Hotel!</a><br/><br/><br/><br/>
                 <p class="label-info">
                     Stay at the Best hotels for less price!<br/><br/>
                     
@@ -91,7 +81,6 @@
             </h2>
         
     </div>
-       </div>
+   
 
-</body>
-</html>
+</asp:Content>

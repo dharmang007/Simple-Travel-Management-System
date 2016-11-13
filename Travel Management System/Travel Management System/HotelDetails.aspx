@@ -91,7 +91,7 @@
                                 <asp:Label ID="hotel_emailLabel"  runat="server" Text='<%# Bind("hotel_email") %>' />
                             </div>
                         </div>
-                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Book Now" />
+                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Book Now" />
 
                     </div>
 
