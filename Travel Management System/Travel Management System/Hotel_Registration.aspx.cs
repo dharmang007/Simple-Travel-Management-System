@@ -20,7 +20,9 @@ namespace Travel_Management_System
             DataClasses1DataContext db = new DataClasses1DataContext();
             HOTEL h = new HOTEL();
             h.hotel_email = hotel_email.Text;
-            h.HOTEL_NAME = name.Text;
+            Session["h_email"] = hotel_email.Text;
+          
+         h.HOTEL_NAME = name.Text;
             h.STREET = street.Text;
             h.CITY = city.Text;
             h.STATE = state.SelectedValue.ToString();
@@ -28,10 +30,11 @@ namespace Travel_Management_System
             {
                 h.password = pwd.Text;
             }
-       //     else {
-              
+            //     else {
 
-      //      }
+
+            //      }
+         
             h.PHONE1 =Convert.ToInt32(no1.Text);
             if (no2.Text != null)
                 h.PHONE2 = Convert.ToInt32(no2.Text);
@@ -44,6 +47,18 @@ namespace Travel_Management_System
             
             db.HOTELs.InsertOnSubmit(h);
             db.SubmitChanges();
+            Response.Redirect("userlogin.aspx");
+        }
+
+        protected void b2_Click(object sender, EventArgs e)
+        {
+            hotel_email.Text = null;
+            name.Text = null;
+            street.Text = null;
+            city.Text = null;
+            no1.Text = null;
+            no2.Text = null;
+            cost.Text = null;
         }
     }
 }

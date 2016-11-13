@@ -13,9 +13,10 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataClasses1DataContext dataclass = new DataClasses1DataContext();
-
-            //    tour = dataclass.Tours.SingleOrDefault(i=>i.DAYS==15);
+           if(Session["admin"]==null)
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
            
         }
         Tour tour = new Tour();

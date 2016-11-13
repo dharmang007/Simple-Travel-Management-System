@@ -85,6 +85,9 @@
     <Content Include="App_Data\TravelDatabase_log.ldf">
       <DependentUpon>TravelDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="EditHotelDetails.aspx" />
+    <Content Include="HotelCustomers.aspx" />
+    <Content Include="HotelProfile.aspx" />
     <Content Include="myHotels.aspx" />
     <Content Include="myTours.aspx" />
     <Content Include="TourBooking.aspx" />
@@ -119,6 +122,7 @@
     <Content Include="DisplayHotels.aspx" />
     <Content Include="TourDetails.aspx" />
     <Content Include="userlogin.aspx" />
+    <Content Include="Hotel.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,6 +186,34 @@
     </Compile>
     <Compile Include="AdminProfile.aspx.designer.cs">
       <DependentUpon>AdminProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditHotelDetails.aspx.cs">
+      <DependentUpon>EditHotelDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditHotelDetails.aspx.designer.cs">
+      <DependentUpon>EditHotelDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel.master.cs">
+      <DependentUpon>Hotel.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hotel.master.designer.cs">
+      <DependentUpon>Hotel.master</DependentUpon>
+    </Compile>
+    <Compile Include="HotelCustomers.aspx.cs">
+      <DependentUpon>HotelCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelCustomers.aspx.designer.cs">
+      <DependentUpon>HotelCustomers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelProfile.aspx.cs">
+      <DependentUpon>HotelProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelProfile.aspx.designer.cs">
+      <DependentUpon>HotelProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="myHotels.aspx.cs">
       <DependentUpon>myHotels.aspx</DependentUpon>

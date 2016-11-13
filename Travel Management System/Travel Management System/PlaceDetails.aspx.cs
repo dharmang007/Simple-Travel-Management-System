@@ -11,11 +11,14 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (PreviousPage != null)
-            {
-                Label l1 = new Label();
-                l1.Text=Request.QueryString["placeid"];
-            }
+            string str = Request.QueryString["place_id"];
+           var db = new DataClasses1DataContext();
+            Place p = new Place();
+            var q = db.Places.SingleOrDefault(i => i.place_id == Convert.ToInt32(str));
+            pic.ImageUrl = q.pic;
+            city.Text = q.city;
+            state.Text = q.state;
+            desc.Text = q.description;
 
         }
 

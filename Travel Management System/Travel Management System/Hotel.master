@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Parent.Master" AutoEventWireup="true" CodeBehind="Hotel.master.cs" Inherits="Travel_Management_System.Hotel" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .container {
+            text-align: center;
+            background-color:white ;
+            width: 100%;
+            font-size: 20px;
+            color: black;
+           
+            padding-bottom: 30px;
+             padding-left:0px;
+        }
+        .nav {
+           
+           background-color:black;
+        }           
+    </style>
+    <asp:ContentPlaceHolder ID="Hotel_header" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+    <ul class="nav nav-tabs">
+                <li><a href="HotelProfile.aspx"> Profile Page </a></li>
+                <li><a href="HotelCustomers.aspx"> Your Customers </a></li>
+                <li><a href="EditHotelDetails.aspx"> Edit Details </a></li>
+                <li class="pull-right">
+                    <asp:Button ID="Button1" runat="server" Text="Sign Out" OnClick="Button1_Click" />
+                </li>
+            </ul>
+    <asp:ContentPlaceHolder ID="HotelSection" runat="server"></asp:ContentPlaceHolder>
+        </div>
+</asp:Content>

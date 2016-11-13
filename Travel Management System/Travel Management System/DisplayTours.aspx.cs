@@ -13,7 +13,7 @@ namespace Travel_Management_System
        
         protected void Page_Load(object sender, EventArgs e)
         {
-           // if (Session["email"] != null)
+            if (Session["email"] != null)
             {
 
                 if (DropDownList1.Items.FindByText("All") == null)
@@ -29,9 +29,9 @@ namespace Travel_Management_System
                 ListView1.DataBind();
 
             }
-  //          else
+           else
             {
-           //     Response.Redirect("userlogin.aspx");
+               Response.Redirect("userlogin.aspx");
             }
             }
 

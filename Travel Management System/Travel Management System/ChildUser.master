@@ -32,7 +32,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="LogOut" /></li>
+                 <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="LogOut" /></li>
                 <li><a href="Profile.aspx">Profile</a></li>
             </ul>    
                
@@ -41,7 +41,8 @@
          <li><a href="MainProfilePage.aspx"> Profile Page </a></li>    
          <li><a href="myTours.aspx">Your tours</a></li>   
          <li><a href="myHotels.aspx">Your Hotels</a></li>    
-         <li><a href="Profile.aspx">Edit User Details</a></li>    
+         <li><a href="Profile.aspx">Edit User Details</a></li>  
+              
     </ul>
        
     <asp:ContentPlaceHolder ID="UserProfileContent" runat="server">

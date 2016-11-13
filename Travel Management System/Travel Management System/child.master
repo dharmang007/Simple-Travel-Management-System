@@ -20,8 +20,8 @@
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="userlogin.aspx">Login</a></li>
-                <li><a href="SignUpForm.aspx"><span class="glyphicons glyphicons-user-add"></span></span>Profile</a></li>
+                <li><a href="Hotel_Registration.aspx">Hotel Registration</a></li>
+                <li><a href="SignUpForm.aspx">User Registration</a></li>
             </ul>    
             
        

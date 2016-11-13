@@ -11,17 +11,24 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (DropDownList1.Items.FindByText("All") == null)
+            if (Session["email"] == null)
             {
-                DropDownList1.Items.Add(new ListItem("All"));
+                Response.Redirect("userlogin.aspx");
             }
-            var db = new DataClasses1DataContext();
-            IQueryable<HOTEL> query;
-            query = from i in db.HOTELs
-                    select i;
+            else
+            {
+                if (DropDownList1.Items.FindByText("All") == null)
+                {
+                    DropDownList1.Items.Add(new ListItem("All"));
+                }
+                var db = new DataClasses1DataContext();
+                IQueryable<HOTEL> query;
+                query = from i in db.HOTELs
+                        select i;
 
-            ListView1.DataSource = query;
-            ListView1.DataBind();
+                ListView1.DataSource = query;
+                ListView1.DataBind();
+            }
 
         }
 

@@ -12,6 +12,10 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["admin"] == null)
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
 
         }
 
@@ -30,7 +34,7 @@ namespace Travel_Management_System
             DataClasses1DataContext db = new DataClasses1DataContext();
             p.city = city.Text;
             p.state = DropDownList1.SelectedValue.ToString();
-            p.description = desc.Text;
+            p.description = desc.Text.Replace("\r\n","<br/>");
             postedfile = city_pic.PostedFile;
             string str = Path.GetFileName(postedfile.FileName);
             Stream stream = postedfile.InputStream;
@@ -43,7 +47,7 @@ namespace Travel_Management_System
             p.pic = "~/Places_pic/" + str;
             db.Places.InsertOnSubmit(p);
             db.SubmitChanges();
-            Response.Redirect("DisplayPlace.aspx");
+            Response.Redirect("AdminProfile.aspx");
 
         }
 

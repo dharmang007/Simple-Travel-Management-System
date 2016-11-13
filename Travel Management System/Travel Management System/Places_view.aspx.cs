@@ -11,8 +11,13 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-       
+            var db = new DataClasses1DataContext();
+            IQueryable<Place> query;
+            query = from i in db.Places
+                    select i;
 
+            ListView1.DataSource = query;
+            ListView1.DataBind();
         }
         
     }

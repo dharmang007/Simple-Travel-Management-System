@@ -13,7 +13,7 @@
          <li class="pull-left"><a href="AddTour.aspx"> Add Tours</a></li>
          <li class="pull-left"><a href="Add_Place.aspx"> Add Places</a></li>
        
-        <li class="pull-right"><asp:Button ID="Logout" runat="server" Text="LogOut" OnClick="Logout_Click"/></li>
+        
     </ul>
    <div class="page-header">
        <h1>

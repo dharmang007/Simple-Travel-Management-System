@@ -77,7 +77,7 @@
                             <asp:Label ID="Label1" runat="server" Text="Email" />
                         </div>
                         <div class="col-sm-5">
-                            <asp:TextBox ID="TextBox1" ForeColor="Black" class="form-control" runat="server" />
+                            <asp:TextBox ID="h_email" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -85,12 +85,12 @@
                             <asp:Label ID="Label2" runat="server" Text="Password" />
                         </div>
                         <div class="col-sm-5">
-                            <asp:TextBox ID="TextBox2" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
+                            <asp:TextBox ID="h_password" TextMode="Password" ForeColor="Black" class="form-control" runat="server" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="control-label col-sm-3">
-                            <asp:Button ID="Button2" runat="server" Text="Login" />
+                            <asp:Button ID="Button2" OnClick="Button2_Click" runat="server" Text="Login" />
                         </div>
                     </div>
                 </div>

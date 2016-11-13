@@ -11,14 +11,12 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["admin"]==null)
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
 
-        protected void Logout_Click(object sender, EventArgs e)
-        {
-            Session["admin"] = null;
-            Response.Redirect("AdminLogin.aspx");
-            
-        }
+        
     }
 }

@@ -17,7 +17,7 @@ namespace Travel_Management_System
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["email"] = null;
-            
+                        
             Response.Redirect("userlogin.aspx");
         }
     }

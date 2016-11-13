@@ -7,16 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace Travel_Management_System
 {
-    public partial class Admin : System.Web.UI.MasterPage
+    public partial class HotelProfile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-        protected void Logout_Click(object sender, EventArgs e)
-        {
-            Session["admin"] = null;
-            Response.Redirect("AdminLogin.aspx");
 
         }
     }

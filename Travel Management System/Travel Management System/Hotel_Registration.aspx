@@ -3,20 +3,23 @@
     <style type="text/css">
         .page-header
         {
-            text-align:center;
-             background-color:white ;
-            
-            font-size: 20px;
-            color: black;
+            text-align:center;            
+            font-size: 30px;
+            color: white;
            
             padding-bottom: 30px;
              padding-left:0px;
         }  
-        .container 
-        {
-            background-color:white;
-            width: 100%;
-        }      
+         .container {
+            text-align: center;
+            background-color: black;
+            width: 75%;
+            font-size: 30px;
+            color: white;
+            padding-bottom:150px;
+            opacity:0.8
+        }  
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -26,7 +29,7 @@
             </h1>
         </div>
         <div class="row">
-            <div class="form-horizontal col-md-7">
+            <div class="form-horizontal col-md-7" style="font-size:20px">
                 <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:label runat="server" text="Email"></asp:label>
@@ -110,10 +113,10 @@
             </div>
             <div class="form-group">
                 <div class="control-label col-md-3">
-                    <asp:button id="b1" runat="server" text="Register" onclick="b1_Click" />
+                    <asp:button id="b1" class="btn btn-primary" runat="server" text="Register" onclick="b1_Click" />
                 </div>
                 <div class="col-md-3">
-                    <asp:button id="b2" runat="server" text="Reset" />
+                    <asp:button id="b2" class="btn btn-primary" OnClick="b2_Click" runat="server" text="Reset" />
                 </div>
             </div>
         </div>
@@ -127,7 +130,7 @@
 
                 </div>
                 <br />
-                <asp:image id="h_pic" hieght="400px" width="500px" runat="server"></asp:image>
+                
                
             </div>
             

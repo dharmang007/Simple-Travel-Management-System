@@ -7,7 +7,7 @@
          AutoGenerateColumns="False"
          DataKeyNames="Booking_id"
          DataSourceID="LinqDataSource1"
-         OnRowUpdating="GridView1_RowUpdating"
+         
        >
         <Columns>
             <asp:CommandField ShowDeleteButton="True" />
@@ -24,4 +24,6 @@
             <asp:SessionParameter Name="Email" SessionField="email" Type="String" />
         </WhereParameters>
     </asp:LinqDataSource>
+    <br />
+    <h3></h3>
 </asp:Content>

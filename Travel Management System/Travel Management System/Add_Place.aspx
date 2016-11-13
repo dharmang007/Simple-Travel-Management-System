@@ -57,7 +57,7 @@
             
         </div>
         <div class="col-md-3">
-            <asp:FileUpload ID="city_pic" runat="server" OnDataBinding="city_pic_DataBinding" /><br/>
+            <asp:FileUpload ID="city_pic" runat="server" /><br/>
             
             <asp:Image ID="Image1" Height="400px" Width="500px" runat="server"/>
         </div>

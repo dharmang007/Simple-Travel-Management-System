@@ -1,23 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="PlaceDetails.aspx.cs" Inherits="Travel_Management_System.DisplayPlace" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+        
+        .auto-style1 {
+            font-size: large;
+            background-color: #99FF33;
+        }
+        .auto-style2 {
+            text-align: left;
+        }
+        
+        </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="place_id" DataSourceID="LinqDataSource1" Height="50px" Width="163px" AutoGenerateEditButton="True" Font-Size="Medium" >
-        <Fields>
-            
-            <asp:BoundField DataField="place_id" HeaderText="place_id" InsertVisible="False" ReadOnly="True" SortExpression="place_id" />
-            <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
-            <asp:BoundField DataField="state" HeaderText="state" SortExpression="state" />
-            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-              
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server"> 
+    <div class="Content">
+      <asp:Image ID="pic" Width="100%" Height="310px" runat="server" /><br/>
+    <h1 style="text-align:center"><asp:Label ID="city" runat="server" Text="Label"></asp:Label><br/></h1>
+        <h2>
+      <asp:Label ID="state" runat="server" Text="Label"></asp:Label></h2>
+        <br/>
+        <p class="auto-style2">
+      <asp:Label BorderStyle="Double" ID="desc" runat="server" Text="Label" CssClass="auto-style1"></asp:Label>
+        </p>
+        <br/>
 
-            <asp:ImageField DataImageUrlField="pic" ControlStyle-Height="500px" ControlStyle-Width="500px">
-            </asp:ImageField>
 
-        </Fields>
-    </asp:DetailsView>
-    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Travel_Management_System.DataClasses1DataContext" EntityTypeName="" TableName="Places" EnableUpdate="True">
-    </asp:LinqDataSource>
+     
+    </div>
     
 </asp:Content>
