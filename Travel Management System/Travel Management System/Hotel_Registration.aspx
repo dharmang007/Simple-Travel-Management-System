@@ -83,7 +83,7 @@
                     <asp:label runat="server" text="State"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:dropdownlist id="state" runat="server" datasourceid="SqlDataSource1" datatextfield="State_name" datavaluefield="State_name"></asp:dropdownlist>
+                    <asp:dropdownlist id="state" runat="server" ForeColor="#000000" datasourceid="SqlDataSource1" datatextfield="State_name" datavaluefield="State_name"></asp:dropdownlist>
                     <asp:sqldatasource id="SqlDataSource1" runat="server" connectionstring="<%$ ConnectionStrings:TravelDatabaseConnectionString %>" selectcommand="SELECT [State_name] FROM [States]"></asp:sqldatasource>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <asp:label runat="server" text="Contact Number 2"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="no2" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="no2" forecolor="black" required="true" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
             <div class="form-group">

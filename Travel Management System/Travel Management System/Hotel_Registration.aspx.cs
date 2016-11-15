@@ -21,7 +21,7 @@ namespace Travel_Management_System
             HOTEL h = new HOTEL();
             h.hotel_email = hotel_email.Text;
             Session["h_email"] = hotel_email.Text;
-          
+            
          h.HOTEL_NAME = name.Text;
             h.STREET = street.Text;
             h.CITY = city.Text;
@@ -36,8 +36,7 @@ namespace Travel_Management_System
             //      }
          
             h.PHONE1 =Convert.ToInt32(no1.Text);
-            if (no2.Text != null)
-                h.PHONE2 = Convert.ToInt32(no2.Text);
+            h.PHONE2 = Convert.ToInt32(no2.Text);
             h.ROOM_COST = Convert.ToInt32(cost.Text);
             
             HttpPostedFile postedfile = fu1.PostedFile;
@@ -47,7 +46,7 @@ namespace Travel_Management_System
             
             db.HOTELs.InsertOnSubmit(h);
             db.SubmitChanges();
-            Response.Redirect("userlogin.aspx");
+            Response.Redirect("HotelProfile.aspx");
         }
 
         protected void b2_Click(object sender, EventArgs e)

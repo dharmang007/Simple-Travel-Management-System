@@ -11,7 +11,12 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["h_id"] == null)
+            {
+                var db = new DataClasses1DataContext();
+                var q = db.HOTELs.SingleOrDefault(i => i.hotel_email == Session["h_email"].ToString());
+                Session["h_id"] = q.hotel_id;
+            }
         }
     }
 }
