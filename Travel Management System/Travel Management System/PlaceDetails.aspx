@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="PlaceDetails.aspx.cs" Inherits="Travel_Management_System.DisplayPlace" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="ChildUser.master" AutoEventWireup="true" CodeBehind="PlaceDetails.aspx.cs" Inherits="Travel_Management_System.DisplayPlace" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <style type="text/css">
         
         .auto-style1 {
@@ -12,7 +12,7 @@
         
         </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server"> 
+<asp:Content ID="Content2" ContentPlaceHolderID="UserProfileContent" runat="server"> 
     <div class="Content">
       <asp:Image ID="pic" Width="100%" Height="310px" runat="server" /><br/>
     <h1 style="text-align:center"><asp:Label ID="city" runat="server" Text="Label"></asp:Label><br/></h1>
