@@ -15,7 +15,9 @@
          DataKeyNames="hotel_id"
          DataSourceID="SqlDataSource1"
          CssClass="auto-style1"
-        >
+        
+        EditRowStyle-ForeColor="Black"
+        ForeColor="Black" Font-Bold="False" EditRowStyle-BackColor="White">
 
         <Fields>
             

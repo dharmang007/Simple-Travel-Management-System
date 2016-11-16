@@ -26,15 +26,15 @@
         <div class="form-horizontal">   
         <div class="form-group"> 
              <div class="control-label col-sm-4"><asp:Label ID="Label1" runat="server" Text="Email"/></div>
-             <div class="col-sm-6"><asp:TextBox ID="email" TextMode="Email" runat="server" ForeColor="Black" class="form-control"/></div>
+             <div class="col-sm-6"><asp:TextBox ID="email" TextMode="Email" runat="server" required="true" ForeColor="Black" class="form-control"/></div>
         </div>
         <div class="form-group">
              <div class="control-label col-sm-4"><asp:Label ID="Label2" runat="server" Text="First Name"/></div>
-             <div class="col-sm-6"><asp:TextBox ID="fname" runat="server"  ForeColor="Black" class="form-control"/></div>                                    
+             <div class="col-sm-6"><asp:TextBox ID="fname" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>                                    
         </div>
         <div class="form-group">
              <div class="control-label col-sm-4"><asp:Label ID="Label3" runat="server" Text="Last Name"/></div>
-             <div class="col-sm-6"><asp:TextBox ID="lname" runat="server"  ForeColor="Black" class="form-control"/></div>
+             <div class="col-sm-6"><asp:TextBox ID="lname" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>
             </div>
         <div class="form-group">
              <div class="control-label col-sm-4"><asp:Label ID="Label4" runat="server" Text="Gender"/></div>
@@ -48,27 +48,29 @@
             </div>    
         <div class="form-group">
                 <div class="control-label col-sm-4"><asp:Label ID="Label5" runat="server" Text="Enter Password"/></div>
-                 <div class="col-sm-6"><asp:TextBox ID="password1" runat="server"  ForeColor="Black" class="form-control"/></div>    
+                 <div class="col-sm-6"><asp:TextBox ID="password1" type="password" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>    
                  </div>    
         <div class="form-group">
                     <div class="control-label col-sm-4"><asp:Label ID="Label6" runat="server" Text="Re-enter Password"/></div>
-                    <div class="col-sm-6"><asp:TextBox ID="password2" runat="server"  ForeColor="Black" class="form-control"/></div>
-                 </div>    
+                    <div class="col-sm-6"><asp:TextBox ID="password2" type="password" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>
+                    <br /><asp:CompareValidator ID="cmp1" runat="server" ControlToValidate="password2" ControlToCompare="password1" ErrorMessage="password doesn't match" Type="String" Display="Dynamic"></asp:CompareValidator>   
+              </div>
+               
         <div class="form-group">            
                     <div class="control-label col-sm-4"><asp:Label ID="Label7" runat="server" Text="Date of birth(dd-mm-yyyy)"/></div>
-                    <div class="col-sm-6"><asp:TextBox ID="dob" runat="server" TextMode="Date"  ForeColor="Black" class="form-control" Width="365px"/></div>
+                    <div class="col-sm-6"><asp:TextBox ID="dob" required="true" runat="server" TextMode="Date"  ForeColor="Black" class="form-control" Width="365px"/></div>
                 </div>    
         <div class="form-group">               
                     <div class="control-label col-sm-4"><asp:Label ID="Label9" runat="server" Text="Street"/></div>
-                    <div class="col-sm-6"><asp:TextBox ID="street" runat="server"  ForeColor="Black" class="form-control"/></div>
+                    <div class="col-sm-6"><asp:TextBox ID="street" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>
                 </div>    
         <div class="form-group">
                     <div class="control-label col-sm-4"><asp:Label ID="Label10" runat="server" Text="City"/></div>
-                    <div class="col-sm-6"><asp:TextBox ID="city" runat="server"  ForeColor="Black" class="form-control"/></div>
+                    <div class="col-sm-6"><asp:TextBox ID="city" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>
                 </div>    
         <div class="form-group">        
                     <div class="control-label col-sm-4"><asp:Label ID="Label11" runat="server" Text="State"/></div>
-                    <div class="col-sm-6"><asp:TextBox ID="state" runat="server"  ForeColor="Black" class="form-control"/></div>
+                    <div class="col-sm-6"><asp:TextBox ID="state" required="true" runat="server"  ForeColor="Black" class="form-control"/></div>
                 </div>        
         <div class="form-group">           
                     <div class="control-label col-sm-2"><asp:Button BackColor="#cc6600" ID="Register" runat="server" Text="Register" ForeColor="Black" class="form-control" OnClick="Register_Click" /></div>

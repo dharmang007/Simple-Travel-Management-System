@@ -51,6 +51,18 @@
           align-content:center;
         }
      
+        .places{
+             background-image: url('../Pics/PlaceDiv.JPG');
+             background-size: cover;
+            text-align:center;
+            color:white;
+            height:500px;
+            background-color:white;
+             opacity:0.8;
+             justify-content: center;
+             vertical-align:central;
+
+        }
      
 </style>
 </asp:Content>
@@ -76,6 +88,18 @@
                 <a href="DisplayHotels.aspx" class="btn btn-primary" style="width:300px; height:50px; font-size:x-large;color:white; background-color:black;" >Explore the Hotel!</a><br/><br/><br/><br/>
                 <p class="label-info">
                     Stay at the Best hotels for less price!<br/><br/>
+                    
+                </p>
+            </h2>
+        
+    </div>
+     <div class="places" >        
+            <h2>
+              <br/><br/><br/>
+                <a href="DisplayPlaces.aspx" class="btn btn-primary" style="width:300px; height:50px; font-size:x-large;color:white; background-color:black;" >Explore the Places!</a><br/><br/><br/><br/>
+                <p class="label-info">
+                    Best Tourist spots in India<br/>
+                    Recommended by us<br/>
                     
                 </p>
             </h2>

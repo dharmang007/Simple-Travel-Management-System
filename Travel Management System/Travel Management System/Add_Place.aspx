@@ -25,7 +25,7 @@
                         <asp:Label ID="Label1" runat="server" Text="City"></asp:Label>
                     </div>
                     <div class="col-md-6">
-                        <asp:TextBox ID="city" class="form-control" runat="server"></asp:TextBox>   
+                        <asp:TextBox ID="city" required="true" class="form-control" runat="server"></asp:TextBox>   
                     </div>                    
                 </div>
                 <div class="form-group">
@@ -39,12 +39,17 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-3 control-label">
-                        <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
+                        <asp:Label ID="Label3" runat="server"  Text="Description"></asp:Label>
                     </div>
                     <div class="col-md-6" >
-                        <asp:TextBox ID="desc" TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>   
+                        <asp:TextBox ID="desc" required="true" TextMode="MultiLine" class="form-control" runat="server"></asp:TextBox>   
                     </div>                    
                 </div>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                 Display="Dynamic" 
+                ErrorMessage="Characters less than 250"
+                ControlToValidate="desc"
+                 ValidationExpression = "^[\s\S]{0,250}$"></asp:RegularExpressionValidator>
                 <div class="form-group">
                     <div class="col-md-6">
                         <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click"/>

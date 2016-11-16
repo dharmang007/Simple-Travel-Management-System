@@ -49,6 +49,15 @@ namespace Travel_Management_System {
         protected global::System.Web.UI.WebControls.TextBox pwd2;
         
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
         /// street control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Travel_Management_System {
         protected global::System.Web.UI.WebControls.TextBox no1;
         
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// no2 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace Travel_Management_System {
         protected global::System.Web.UI.WebControls.TextBox no2;
         
         /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
         /// cost control.
         /// </summary>
         /// <remarks>
@@ -110,6 +137,15 @@ namespace Travel_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox cost;
+        
+        /// <summary>
+        /// cmp2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmp2;
         
         /// <summary>
         /// b1 control.

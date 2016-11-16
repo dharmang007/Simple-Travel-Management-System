@@ -85,11 +85,17 @@
     <Content Include="App_Data\TravelDatabase_log.ldf">
       <DependentUpon>TravelDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="DisplayPlaceAdmin.aspx" />
+    <Content Include="DisplayTourAdmin.aspx" />
     <Content Include="EditHotelDetails.aspx" />
+    <Content Include="EditPlaceAdmin.aspx" />
+    <Content Include="EditTourAdmin.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="HotelCustomers.aspx" />
     <Content Include="HotelProfile.aspx" />
     <Content Include="myHotels.aspx" />
     <Content Include="myTours.aspx" />
+    <Content Include="Pics\PlaceDiv.JPG" />
     <Content Include="TourBooking.aspx" />
     <Content Include="PlaceDetails.aspx" />
     <Content Include="HotelBooking.aspx" />
@@ -106,7 +112,7 @@
     <Content Include="Pics\jumbotron2.jpg" />
     <Content Include="Pics\HomePagePic.jpg" />
     <Content Include="Pics\wallpaper.jpg" />
-    <Content Include="Places_view.aspx" />
+    <Content Include="DisplayPlaces.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Parent.Master" />
@@ -187,12 +193,43 @@
     <Compile Include="AdminProfile.aspx.designer.cs">
       <DependentUpon>AdminProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DisplayPlaceAdmin.aspx.cs">
+      <DependentUpon>DisplayPlaceAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayPlaceAdmin.aspx.designer.cs">
+      <DependentUpon>DisplayPlaceAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayTourAdmin.aspx.cs">
+      <DependentUpon>DisplayTourAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayTourAdmin.aspx.designer.cs">
+      <DependentUpon>DisplayTourAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditHotelDetails.aspx.cs">
       <DependentUpon>EditHotelDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditHotelDetails.aspx.designer.cs">
       <DependentUpon>EditHotelDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPlaceAdmin.aspx.cs">
+      <DependentUpon>EditPlaceAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPlaceAdmin.aspx.designer.cs">
+      <DependentUpon>EditPlaceAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditTourAdmin.aspx.cs">
+      <DependentUpon>EditTourAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTourAdmin.aspx.designer.cs">
+      <DependentUpon>EditTourAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hotel.master.cs">
       <DependentUpon>Hotel.master</DependentUpon>
@@ -304,12 +341,12 @@
     <Compile Include="Parent.Master.designer.cs">
       <DependentUpon>Parent.Master</DependentUpon>
     </Compile>
-    <Compile Include="Places_view.aspx.cs">
-      <DependentUpon>Places_view.aspx</DependentUpon>
+    <Compile Include="DisplayPlaces.aspx.cs">
+      <DependentUpon>DisplayPlaces.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Places_view.aspx.designer.cs">
-      <DependentUpon>Places_view.aspx</DependentUpon>
+    <Compile Include="DisplayPlaces.aspx.designer.cs">
+      <DependentUpon>DisplayPlaces.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

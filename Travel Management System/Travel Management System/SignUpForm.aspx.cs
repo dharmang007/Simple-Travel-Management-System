@@ -34,8 +34,13 @@ namespace Travel_Management_System
             {
                 UserInfo user = new UserInfo();
                 user.Email = email.Text;
+                Session["email"] = email.Text;
+
                 user.FirstName = fname.Text;
+                Session["f_name"] = fname.Text;
+
                 user.LastName = lname.Text;
+                Session["l_name"] = lname.Text;
                 user.Gender = gender.Text;
                 user.Password = password1.Text;
                 String dateofbirth = dob.Text;
@@ -46,7 +51,7 @@ namespace Travel_Management_System
                 user.State = state.Text;
                 dataclass.UserInfos.InsertOnSubmit(user);  // UserInfos with 's' is the same as the UserInfo ,but with 's'.
                 dataclass.SubmitChanges();
-                Response.Redirect("Profile.aspx");
+                Response.Redirect("MainProfilePage.aspx");
             }
         }
     }

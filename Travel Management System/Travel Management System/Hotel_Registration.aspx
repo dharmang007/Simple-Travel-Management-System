@@ -43,7 +43,7 @@
                     <asp:label runat="server" text="Hotel Name"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="name" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="name" required="true" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
                 <div class="form-group">
@@ -51,23 +51,24 @@
                     <asp:label runat="server" text="Password"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="pwd" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="pwd" required="true" TextMode="Password" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
                 <div class="form-group">
                 <div class="control-label col-md-3">
-                    <asp:label runat="server" text="Re-enter Password"></asp:label>
+                    <asp:label runat="server"  text="Re-enter Password"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="pwd2" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="pwd2"  required="true" TextMode="Password" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="pwd2" ControlToCompare="pwd" Display="Dynamic" Operator="Equal" ErrorMessage="Enter same passwords"></asp:CompareValidator>
             <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:label runat="server" text="Street"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="street" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="street" required="true" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
             <div class="form-group">
@@ -75,7 +76,7 @@
                     <asp:label runat="server" text="city"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="city" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="city" required="true" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
             <div class="form-group">
@@ -92,25 +93,29 @@
                     <asp:label runat="server" text="Contact Number 1"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="no1" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="no1" required="true" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
+                <asp:RegularExpressionValidator id="RegularExpressionValidator1" runat="server" controltovalidate="no1" ErrorMessage="invalid number" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
             <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:label runat="server" text="Contact Number 2"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="no2" forecolor="black" required="true" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="no2"   forecolor="black" required="true" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
+                <asp:RegularExpressionValidator id="RegularExpressionValidator2" runat="server" controltovalidate="no2" ErrorMessage="invalid number" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
             <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:label runat="server" text="Room Cost"></asp:label>
                 </div>
                 <div class="col-md-5">
-                    <asp:textbox id="cost" forecolor="black" class="form-control" runat="server"></asp:textbox>
+                    <asp:textbox id="cost" required="true" forecolor="black" class="form-control" runat="server"></asp:textbox>
                 </div>
             </div>
+      
+                    <asp:CompareValidator ID="cmp2" runat="server" controltovalidate="cost" valuetocompare="100000" ErrorMessage="cost should be less than 100000" Type="Integer" operator="LessThan"  ></asp:CompareValidator>
             <div class="form-group">
                 <div class="control-label col-md-3">
                     <asp:button id="b1" class="btn btn-primary" runat="server" text="Register" onclick="b1_Click" />
@@ -125,7 +130,7 @@
                 <br />
                 <div class="form-group">
                     <div class="col-md-8" style="align-content: center">
-                        <asp:fileupload id="fu1" runat="server"></asp:fileupload>
+                        <asp:fileupload id="fu1" required="true" runat="server"></asp:fileupload>
                     </div>
 
                 </div>

@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/child.master" AutoEventWireup="true" CodeBehind="userlogin.aspx.cs" Inherits="Travel_Management_System.userlogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <style type="text/css">
-        .container-fluid {
-            background-color:white;
-            border-bottom-style:double;
-            width:100%;
-            align-content:center;
-        }
+         .container-fluid {
+             background-color: white;
+             border-bottom-style: double;
+             width: 100%;
+             align-cC: \Users\Dharmang\Source\Repos\OnlineTravelManagementSystem_D4\Travel Management System\Travel Management System\userlogin.aspxontent:center;
+         }
         .container-fluid .login{
             background-color:azure;
             

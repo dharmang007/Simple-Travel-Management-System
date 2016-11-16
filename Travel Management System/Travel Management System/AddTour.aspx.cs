@@ -41,7 +41,7 @@ namespace Travel_Management_System
                 tour.pic = "~/Tour_pics/"+str;
                 fileposted.SaveAs(Server.MapPath("~/Tour_pics/")+str);
                 
-                Label7.Text= FileUpload1.FileName;
+               
                 dataclass.Tours.InsertOnSubmit(tour);
                 dataclass.SubmitChanges();
                

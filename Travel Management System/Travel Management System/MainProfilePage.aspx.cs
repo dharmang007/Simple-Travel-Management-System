@@ -11,6 +11,10 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null || Session["f_name"]==null)
+            {
+                Response.Redirect("userlogin.aspx");
+            }
             if (!IsPostBack) {
 
                 Label1.Visible = true;
