@@ -9,6 +9,7 @@
             font-size: 30px;
             color: white;
             padding-bottom:150px;
+            opacity:0.8;
         }
         
 
@@ -21,7 +22,7 @@
 
      <div class="container" >
         <div class="page-header">
-                <h1>Registration Form </h1>
+                <h1>User Registration Form </h1>
         </div>
         <div class="form-horizontal">   
         <div class="form-group"> 

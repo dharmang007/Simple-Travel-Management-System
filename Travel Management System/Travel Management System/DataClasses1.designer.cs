@@ -54,6 +54,12 @@ namespace Travel_Management_System
     partial void InsertHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void UpdateHOTEL_BOOKING(HOTEL_BOOKING instance);
     partial void DeleteHOTEL_BOOKING(HOTEL_BOOKING instance);
+    partial void InsertPlaceAdded(PlaceAdded instance);
+    partial void UpdatePlaceAdded(PlaceAdded instance);
+    partial void DeletePlaceAdded(PlaceAdded instance);
+    partial void InsertTourAdded(TourAdded instance);
+    partial void UpdateTourAdded(TourAdded instance);
+    partial void DeleteTourAdded(TourAdded instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -147,6 +153,22 @@ namespace Travel_Management_System
 			get
 			{
 				return this.GetTable<HOTEL_BOOKING>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PlaceAdded> PlaceAddeds
+		{
+			get
+			{
+				return this.GetTable<PlaceAdded>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TourAdded> TourAddeds
+		{
+			get
+			{
+				return this.GetTable<TourAdded>();
 			}
 		}
 	}
@@ -471,6 +493,10 @@ namespace Travel_Management_System
 		
 		private string _password;
 		
+		private EntitySet<PlaceAdded> _PlaceAddeds;
+		
+		private EntitySet<TourAdded> _TourAddeds;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -483,6 +509,8 @@ namespace Travel_Management_System
 		
 		public AdminTable()
 		{
+			this._PlaceAddeds = new EntitySet<PlaceAdded>(new Action<PlaceAdded>(this.attach_PlaceAddeds), new Action<PlaceAdded>(this.detach_PlaceAddeds));
+			this._TourAddeds = new EntitySet<TourAdded>(new Action<TourAdded>(this.attach_TourAddeds), new Action<TourAdded>(this.detach_TourAddeds));
 			OnCreated();
 		}
 		
@@ -526,6 +554,32 @@ namespace Travel_Management_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminTable_PlaceAdded", Storage="_PlaceAddeds", ThisKey="username", OtherKey="AdminUsername")]
+		public EntitySet<PlaceAdded> PlaceAddeds
+		{
+			get
+			{
+				return this._PlaceAddeds;
+			}
+			set
+			{
+				this._PlaceAddeds.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminTable_TourAdded", Storage="_TourAddeds", ThisKey="username", OtherKey="AdminUsername")]
+		public EntitySet<TourAdded> TourAddeds
+		{
+			get
+			{
+				return this._TourAddeds;
+			}
+			set
+			{
+				this._TourAddeds.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -544,6 +598,30 @@ namespace Travel_Management_System
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_PlaceAddeds(PlaceAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.AdminTable = this;
+		}
+		
+		private void detach_PlaceAddeds(PlaceAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.AdminTable = null;
+		}
+		
+		private void attach_TourAddeds(TourAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.AdminTable = this;
+		}
+		
+		private void detach_TourAddeds(TourAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.AdminTable = null;
 		}
 	}
 	
@@ -571,6 +649,8 @@ namespace Travel_Management_System
 		
 		private EntitySet<Tour_booking> _Tour_bookings;
 		
+		private EntitySet<TourAdded> _TourAddeds;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -596,6 +676,7 @@ namespace Travel_Management_System
 		public Tour()
 		{
 			this._Tour_bookings = new EntitySet<Tour_booking>(new Action<Tour_booking>(this.attach_Tour_bookings), new Action<Tour_booking>(this.detach_Tour_bookings));
+			this._TourAddeds = new EntitySet<TourAdded>(new Action<TourAdded>(this.attach_TourAddeds), new Action<TourAdded>(this.detach_TourAddeds));
 			OnCreated();
 		}
 		
@@ -772,6 +853,19 @@ namespace Travel_Management_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tour_TourAdded", Storage="_TourAddeds", ThisKey="TOUR_ID", OtherKey="Tour_id")]
+		public EntitySet<TourAdded> TourAddeds
+		{
+			get
+			{
+				return this._TourAddeds;
+			}
+			set
+			{
+				this._TourAddeds.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -799,6 +893,18 @@ namespace Travel_Management_System
 		}
 		
 		private void detach_Tour_bookings(Tour_booking entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tour = null;
+		}
+		
+		private void attach_TourAddeds(TourAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tour = this;
+		}
+		
+		private void detach_TourAddeds(TourAdded entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tour = null;
@@ -907,6 +1013,8 @@ namespace Travel_Management_System
 		
 		private string _pic;
 		
+		private EntitySet<PlaceAdded> _PlaceAddeds;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -925,6 +1033,7 @@ namespace Travel_Management_System
 		
 		public Place()
 		{
+			this._PlaceAddeds = new EntitySet<PlaceAdded>(new Action<PlaceAdded>(this.attach_PlaceAddeds), new Action<PlaceAdded>(this.detach_PlaceAddeds));
 			OnCreated();
 		}
 		
@@ -1028,6 +1137,19 @@ namespace Travel_Management_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Place_PlaceAdded", Storage="_PlaceAddeds", ThisKey="place_id", OtherKey="place_id")]
+		public EntitySet<PlaceAdded> PlaceAddeds
+		{
+			get
+			{
+				return this._PlaceAddeds;
+			}
+			set
+			{
+				this._PlaceAddeds.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1046,6 +1168,18 @@ namespace Travel_Management_System
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_PlaceAddeds(PlaceAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.Place = this;
+		}
+		
+		private void detach_PlaceAddeds(PlaceAdded entity)
+		{
+			this.SendPropertyChanging();
+			entity.Place = null;
 		}
 	}
 	
@@ -1834,6 +1968,342 @@ namespace Travel_Management_System
 						this._user_email = default(string);
 					}
 					this.SendPropertyChanged("UserInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PlaceAdded")]
+	public partial class PlaceAdded : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _place_id;
+		
+		private string _AdminUsername;
+		
+		private EntityRef<Place> _Place;
+		
+		private EntityRef<AdminTable> _AdminTable;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onplace_idChanging(int value);
+    partial void Onplace_idChanged();
+    partial void OnAdminUsernameChanging(string value);
+    partial void OnAdminUsernameChanged();
+    #endregion
+		
+		public PlaceAdded()
+		{
+			this._Place = default(EntityRef<Place>);
+			this._AdminTable = default(EntityRef<AdminTable>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_place_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int place_id
+		{
+			get
+			{
+				return this._place_id;
+			}
+			set
+			{
+				if ((this._place_id != value))
+				{
+					if (this._Place.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onplace_idChanging(value);
+					this.SendPropertyChanging();
+					this._place_id = value;
+					this.SendPropertyChanged("place_id");
+					this.Onplace_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminUsername", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string AdminUsername
+		{
+			get
+			{
+				return this._AdminUsername;
+			}
+			set
+			{
+				if ((this._AdminUsername != value))
+				{
+					if (this._AdminTable.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAdminUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._AdminUsername = value;
+					this.SendPropertyChanged("AdminUsername");
+					this.OnAdminUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Place_PlaceAdded", Storage="_Place", ThisKey="place_id", OtherKey="place_id", IsForeignKey=true)]
+		public Place Place
+		{
+			get
+			{
+				return this._Place.Entity;
+			}
+			set
+			{
+				Place previousValue = this._Place.Entity;
+				if (((previousValue != value) 
+							|| (this._Place.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Place.Entity = null;
+						previousValue.PlaceAddeds.Remove(this);
+					}
+					this._Place.Entity = value;
+					if ((value != null))
+					{
+						value.PlaceAddeds.Add(this);
+						this._place_id = value.place_id;
+					}
+					else
+					{
+						this._place_id = default(int);
+					}
+					this.SendPropertyChanged("Place");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminTable_PlaceAdded", Storage="_AdminTable", ThisKey="AdminUsername", OtherKey="username", IsForeignKey=true)]
+		public AdminTable AdminTable
+		{
+			get
+			{
+				return this._AdminTable.Entity;
+			}
+			set
+			{
+				AdminTable previousValue = this._AdminTable.Entity;
+				if (((previousValue != value) 
+							|| (this._AdminTable.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AdminTable.Entity = null;
+						previousValue.PlaceAddeds.Remove(this);
+					}
+					this._AdminTable.Entity = value;
+					if ((value != null))
+					{
+						value.PlaceAddeds.Add(this);
+						this._AdminUsername = value.username;
+					}
+					else
+					{
+						this._AdminUsername = default(string);
+					}
+					this.SendPropertyChanged("AdminTable");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TourAdded")]
+	public partial class TourAdded : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Tour_id;
+		
+		private string _AdminUsername;
+		
+		private EntityRef<Tour> _Tour;
+		
+		private EntityRef<AdminTable> _AdminTable;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTour_idChanging(decimal value);
+    partial void OnTour_idChanged();
+    partial void OnAdminUsernameChanging(string value);
+    partial void OnAdminUsernameChanged();
+    #endregion
+		
+		public TourAdded()
+		{
+			this._Tour = default(EntityRef<Tour>);
+			this._AdminTable = default(EntityRef<AdminTable>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tour_id", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Tour_id
+		{
+			get
+			{
+				return this._Tour_id;
+			}
+			set
+			{
+				if ((this._Tour_id != value))
+				{
+					if (this._Tour.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTour_idChanging(value);
+					this.SendPropertyChanging();
+					this._Tour_id = value;
+					this.SendPropertyChanged("Tour_id");
+					this.OnTour_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminUsername", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string AdminUsername
+		{
+			get
+			{
+				return this._AdminUsername;
+			}
+			set
+			{
+				if ((this._AdminUsername != value))
+				{
+					if (this._AdminTable.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAdminUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._AdminUsername = value;
+					this.SendPropertyChanged("AdminUsername");
+					this.OnAdminUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tour_TourAdded", Storage="_Tour", ThisKey="Tour_id", OtherKey="TOUR_ID", IsForeignKey=true)]
+		public Tour Tour
+		{
+			get
+			{
+				return this._Tour.Entity;
+			}
+			set
+			{
+				Tour previousValue = this._Tour.Entity;
+				if (((previousValue != value) 
+							|| (this._Tour.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tour.Entity = null;
+						previousValue.TourAddeds.Remove(this);
+					}
+					this._Tour.Entity = value;
+					if ((value != null))
+					{
+						value.TourAddeds.Add(this);
+						this._Tour_id = value.TOUR_ID;
+					}
+					else
+					{
+						this._Tour_id = default(decimal);
+					}
+					this.SendPropertyChanged("Tour");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AdminTable_TourAdded", Storage="_AdminTable", ThisKey="AdminUsername", OtherKey="username", IsForeignKey=true)]
+		public AdminTable AdminTable
+		{
+			get
+			{
+				return this._AdminTable.Entity;
+			}
+			set
+			{
+				AdminTable previousValue = this._AdminTable.Entity;
+				if (((previousValue != value) 
+							|| (this._AdminTable.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AdminTable.Entity = null;
+						previousValue.TourAddeds.Remove(this);
+					}
+					this._AdminTable.Entity = value;
+					if ((value != null))
+					{
+						value.TourAddeds.Add(this);
+						this._AdminUsername = value.username;
+					}
+					else
+					{
+						this._AdminUsername = default(string);
+					}
+					this.SendPropertyChanged("AdminTable");
 				}
 			}
 		}

@@ -9,9 +9,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <ul class="nav navbar nav-tabs">
-        <li class="pull-left"><a href="AdminProfile.aspx"> Profile </a></li>
+         <li class="pull-left"><a href="AdminProfile.aspx"> Profile </a></li>
          <li class="pull-left"><a href="AddTour.aspx"> Add Tours</a></li>
          <li class="pull-left"><a href="Add_Place.aspx"> Add Places</a></li>
+         <li class="pull-left"><a href="PlaceByAdmin.aspx">Places Added by you</a></li>
+         <li class="pull-left"><a href="TourByAdmin.aspx">Tours Added by you</a></li>
        
         
     </ul>

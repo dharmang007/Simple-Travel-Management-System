@@ -12,9 +12,9 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          //  if(Session["admin"] == null)
+            if(Session["admin"] == null)
             {
-         //       Response.Redirect("AdminLogin.aspx");
+                Response.Redirect("AdminLogin.aspx");
             }
 
         }
@@ -28,6 +28,7 @@ namespace Travel_Management_System
 
         }
         Place p = new Place();
+        PlaceAdded pa = new PlaceAdded();
         HttpPostedFile postedfile = null;
         protected void Submit_Click(object sender, EventArgs e)
         {
@@ -47,6 +48,22 @@ namespace Travel_Management_System
             p.pic = "~/Places_pic/" + str;
             db.Places.InsertOnSubmit(p);
             db.SubmitChanges();
+
+            // This will fill up the PlaceAdded table
+            {
+                var q = db.Places.SingleOrDefault(i => i.city == p.city);
+                pa.place_id = q.place_id;
+                pa.AdminUsername = Session["admin"].ToString();
+                db.PlaceAddeds.InsertOnSubmit(pa);
+                db.SubmitChanges();  
+
+
+
+
+            }
+
+
+
             Response.Redirect("AdminProfile.aspx");
 
         }

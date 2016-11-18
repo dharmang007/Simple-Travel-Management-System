@@ -19,6 +19,8 @@
     <Type Name="AdminTable">
       <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="AdminTable_PlaceAdded" Member="PlaceAddeds" ThisKey="username" OtherKey="AdminUsername" Type="PlaceAdded" />
+      <Association Name="AdminTable_TourAdded" Member="TourAddeds" ThisKey="username" OtherKey="AdminUsername" Type="TourAdded" />
     </Type>
   </Table>
   <Table Name="dbo.Tour" Member="Tours">
@@ -32,6 +34,7 @@
       <Column Name="TOUR_INFO" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="pic" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Association Name="Tour_Tour_booking" Member="Tour_bookings" ThisKey="TOUR_ID" OtherKey="Tour_id" Type="Tour_booking" />
+      <Association Name="Tour_TourAdded" Member="TourAddeds" ThisKey="TOUR_ID" OtherKey="Tour_id" Type="TourAdded" />
     </Type>
   </Table>
   <Table Name="dbo.States" Member="States">
@@ -47,6 +50,7 @@
       <Column Name="state" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="description" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="pic" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Place_PlaceAdded" Member="PlaceAddeds" ThisKey="place_id" OtherKey="place_id" Type="PlaceAdded" />
     </Type>
   </Table>
   <Table Name="dbo.HOTELS" Member="HOTELs">
@@ -85,6 +89,22 @@
       <Column Name="Total_Cost" Type="System.Decimal" DbType="Decimal(8,0) NOT NULL" CanBeNull="false" />
       <Association Name="HOTEL_HOTEL_BOOKING" Member="HOTEL" ThisKey="hotel_id" OtherKey="hotel_id" Type="HOTEL" IsForeignKey="true" />
       <Association Name="UserInfo_HOTEL_BOOKING" Member="UserInfo" ThisKey="user_email" OtherKey="Email" Type="UserInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlaceAdded" Member="PlaceAddeds">
+    <Type Name="PlaceAdded">
+      <Column Name="place_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdminUsername" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Place_PlaceAdded" Member="Place" ThisKey="place_id" OtherKey="place_id" Type="Place" IsForeignKey="true" />
+      <Association Name="AdminTable_PlaceAdded" Member="AdminTable" ThisKey="AdminUsername" OtherKey="username" Type="AdminTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TourAdded" Member="TourAddeds">
+    <Type Name="TourAdded">
+      <Column Name="Tour_id" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdminUsername" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Tour_TourAdded" Member="Tour" ThisKey="Tour_id" OtherKey="TOUR_ID" Type="Tour" IsForeignKey="true" />
+      <Association Name="AdminTable_TourAdded" Member="AdminTable" ThisKey="AdminUsername" OtherKey="username" Type="AdminTable" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

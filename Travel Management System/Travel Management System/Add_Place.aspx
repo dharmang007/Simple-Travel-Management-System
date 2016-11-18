@@ -64,7 +64,7 @@
         <div class="col-md-3">
             <asp:FileUpload ID="city_pic" runat="server" /><br/>
             
-            <asp:Image ID="Image1" Height="400px" Width="500px" runat="server"/>
+            <asp:Image ID="Image1" runat="server" />
         </div>
         
 

@@ -44,9 +44,17 @@ namespace Travel_Management_System
                
                 dataclass.Tours.InsertOnSubmit(tour);
                 dataclass.SubmitChanges();
-               
-               /* GridView1.DataSource = dataclass.Tours;
-                GridView1.DataBind();*/
+
+                // This will Add row in the TourAdded
+                {
+                    TourAdded ta = new TourAdded();
+                    DataClasses1DataContext db = new DataClasses1DataContext();
+                    var q = db.Tours.SingleOrDefault(i => i.TOUR_NAME == tour.TOUR_NAME);
+                    ta.Tour_id = q.TOUR_ID;
+                    ta.AdminUsername = Session["admin"].ToString();
+                    db.TourAddeds.InsertOnSubmit(ta);
+                    db.SubmitChanges();
+                }
                 Response.Redirect("AdminProfile.aspx");
 
 

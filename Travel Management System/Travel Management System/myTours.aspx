@@ -1,13 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ChildUser.master" AutoEventWireup="true" CodeBehind="myTours.aspx.cs" Inherits="Travel_Management_System.myTours" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <style>
+        .page-header{
+            text-align:center;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="UserProfileContent" runat="server">
+     <div class="page-header">
+        <h1>Your Tours</h1>
+    </div>
     <br />
     <asp:GridView ID="GridView1" runat="server"
          AutoGenerateColumns="False"
          DataKeyNames="Booking_id"
          DataSourceID="LinqDataSource1"
-         
+         HorizontalAlign="Center"
        >
         <Columns>
             <asp:CommandField ShowDeleteButton="True" />

@@ -126,6 +126,8 @@
     </Content>
     <Content Include="Admin.master" />
     <Content Include="DisplayHotels.aspx" />
+    <Content Include="PlaceByAdmin.aspx" />
+    <Content Include="TourByAdmin.aspx" />
     <Content Include="TourDetails.aspx" />
     <Content Include="userlogin.aspx" />
     <Content Include="Hotel.master" />
@@ -369,6 +371,20 @@
     </Compile>
     <Compile Include="DisplayHotels.aspx.designer.cs">
       <DependentUpon>DisplayHotels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceByAdmin.aspx.cs">
+      <DependentUpon>PlaceByAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlaceByAdmin.aspx.designer.cs">
+      <DependentUpon>PlaceByAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourByAdmin.aspx.cs">
+      <DependentUpon>TourByAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourByAdmin.aspx.designer.cs">
+      <DependentUpon>TourByAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="TourDetails.aspx.cs">
       <DependentUpon>TourDetails.aspx</DependentUpon>

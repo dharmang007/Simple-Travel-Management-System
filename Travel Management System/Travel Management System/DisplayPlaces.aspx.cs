@@ -11,6 +11,10 @@ namespace Travel_Management_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"]==null)
+            {
+                Response.Redirect("userlogin.aspx");
+            }
             var db = new DataClasses1DataContext();
             IQueryable<Place> query;
             query = from i in db.Places
